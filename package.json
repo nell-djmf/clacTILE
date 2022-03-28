@@ -1,0 +1,21 @@
+{
+  "name": "clactile",
+  "version": "1.0.0",
+  "description": "## Premise A part picker for building mechanical keyboards. Tile-based image layout for ease of color-matching.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nell-djmf/clacTILE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nell-djmf/clacTILE/issues"
+  },
+  "homepage": "https://github.com/nell-djmf/clacTILE#readme"
+}
