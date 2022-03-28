@@ -1,9 +1,9 @@
 # clacTILE
 
 ## Premise
-A part picker for building mechanical keyboards. Tile-based image layout for ease of color-matching
+A part picker for building mechanical keyboards. Tile-based image layout for ease of color-matching.
 
-![mech boards](https://cld.accentuate.io/7121654153374/1644442437846/hero-render-copy.jpg)
+![mech boards](https://i.pinimg.com/originals/74/9e/3d/749e3d3d9dce4f31497c0dd1afec6c97.png)
 
 ## Features
 
@@ -13,7 +13,8 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 - Edit your own list of builds with personal notes 
 
 
-## Upcoming Fatures
+## Upcoming Features
+### [Trello](https://trello.com/b/9XaPPAAh/clactile)
 - [ ] Database extension for more PC peripherals by color (mice, headsets, deskmats, wrist/keyboard wrests)
 - [ ] Pricing and buy sources for items
 
@@ -26,5 +27,6 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 - Mongoose
 - Express
 
+
 ### Credits
-[Keyboard concepts render](https://mintlodica.com/products/dsa-magic-girl-keycaps)
+[Keyboard concept image](https://www.reddit.com/r/MechanicalKeyboards/comments/4vh8ui/photo_its_getting_crowded_in_here/)
