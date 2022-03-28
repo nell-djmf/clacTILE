@@ -30,3 +30,16 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 
 ### Credits
 [Keyboard concept image](https://www.reddit.com/r/MechanicalKeyboards/comments/4vh8ui/photo_its_getting_crowded_in_here/)
+
+Case References
+[KBDFans](https://kbdfans.com/)
+[SplitKB]{https://splitkb.com/}
+
+Keycap References
+[Originative Eco](https://www.originativeco.com/)
+[Novelkeys](https://novelkeys.com/)
+[HyperX](https://www.hyperxgaming.com/us/keyboards/keyboard-accessories/hyperx-pudding-keycaps)
+[Drop](https://drop.com/buy/drop-mito-gmk-laser-custom-keycap-set)
+
+Switch References
+
