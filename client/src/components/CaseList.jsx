@@ -24,10 +24,6 @@ const CaseList = (props) => {
         console.log(localStorage)
         navigate(`/keycaps`)
     }
-
-
-
-    
   
       return (
           <div className="case-container">
@@ -40,6 +36,7 @@ const CaseList = (props) => {
                       layout={ caseItem.layout }
                       material={ caseItem.material }
                       color={ caseItem.color }
+                      id={caseItem._id}
                       addCase={addCase}                  
                       />
                   ))

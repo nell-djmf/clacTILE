@@ -8,10 +8,11 @@ const Switch = (props) => {
           <div>
             <li>
               <div className='switch-card'>
-                <button onClick={props.addSwitch}>{ props.name }</button>
+                <h2>{ props.name }</h2>
                 <h3>Type: { props.type } </h3>
                 <h3>Actuation Force: { props.actuation } </h3>
                 <h3>Color: { props.color } </h3>
+                <h3>ID: <button onClick={props.addSwitch}>{props.id}</button></h3>
               </div>
             </li>
           </div>

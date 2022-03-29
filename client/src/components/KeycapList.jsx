@@ -39,6 +39,7 @@ const KeycapList = (props) => {
                       material={ keycapItem.material }
                       lettering={ keycapItem.lettering }
                       color={ keycapItem.color }
+                      id={keycapItem._id}
                       addKeycap={addKeycap}                  
                       />
                   ))

@@ -1,3 +1,36 @@
+// import User from "./User"
+
+
+// const UserList = (props) => {
+
+
+//     const buildCompile = () => {
+//         let buildName = prompt('Name your build')
+//         props.setNewKbuild({name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch')})
+//         localStorage.clear()
+//         }
+
+  
+//       return (
+//           <div className="user-container">
+//               <h1>Users</h1>
+//               <ul>
+//                   { props.users.map((userItem) => (
+//                       <User
+//                       key={ userItem.name } 
+//                       name={ userItem.name }
+//                       buildCompile={buildCompile}              
+//                       />
+//                     ))
+//                   }
+//               </ul>
+//           </div>
+//       )
+// }
+  
+//   export default UserList
+
+
 import Build from "./Build"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -6,13 +39,13 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-const BuildDetail = (props) => {
+const BuildList = (props) => {
 
     const [builds, setBuilds] = useState([])
 
 
     const getBuilds = async () => {
-        const res = await axios.get(`http://localhost:3001/users/${props.name}`)
+        const res = await axios.get(`http://localhost:3001/builds`)
         console.log(res.data)
         setBuilds(res.data)
     }
@@ -38,7 +71,7 @@ const BuildDetail = (props) => {
   
       return (
           <div className="build-container">
-              <h1>{props.name}'s Builds</h1>
+              <h1>{props.users}'s Builds</h1>
               <ul>
                   { builds.map((buildItem) => (
                       <Build
@@ -56,4 +89,4 @@ const BuildDetail = (props) => {
       )
   }
   
-  export default BuildDetail
+  export default BuildList

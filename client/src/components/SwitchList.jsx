@@ -18,23 +18,15 @@ const SwitchList = (props) => {
 
     let navigate = useNavigate()
 
-    
-    let buildName = ''
 
 
 
     const addSwitch = (e) => {
         localStorage.setItem('switch', e.target.innerHTML)
         console.log(localStorage)
-        buildName = prompt('Name your build')
-        buildCompile()
-    }
-
-
-    const buildCompile = () => {
-        const res = axios.post(`/users/${props.name}/create/${buildName}/${localStorage.getItem('case')}/${localStorage.getItem('keycap')}/${localStorage.getItem('switch')}`)
         navigate(`/users`)
     }
+
   
       return (
           <div className="switch-container">
@@ -47,6 +39,7 @@ const SwitchList = (props) => {
                       type={ switchItem.type }
                       actuation={ switchItem.actuation }
                       color={ switchItem.color }
+                      id={switchItem._id}
                       addSwitch={addSwitch}                  
                       />
                     ))

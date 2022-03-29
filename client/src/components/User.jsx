@@ -13,14 +13,13 @@ const User = (props) => {
   const getLists = async () => {
     const res = await axios.get(`http://localhost:3001/lists/${props.name}`)
     setLists(res.data)
-    localStorage.clear('test')
     console.log(localStorage)
   }
 
   useEffect(() => {
     getLists()
   }, [])
-  
+
 
   let navigate = useNavigate()
 
@@ -45,6 +44,7 @@ const User = (props) => {
                         />
                         ))
                     }
+                  <button onClick={props.buildCompile}>Compile</button>
                 </div>
             </li>
           </div>
