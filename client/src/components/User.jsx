@@ -20,7 +20,7 @@ const User = (props) => {
   useEffect(() => {
     getLists()
   }, [])
-
+  
 
   let navigate = useNavigate()
 
