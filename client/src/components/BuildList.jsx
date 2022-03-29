@@ -4,12 +4,25 @@ import axios from 'axios'
 
 const BuildList = (props) => {
 
+    const [builds, setBuilds] = useState([])
+
+
+    const getBuilds = async () => {
+        const res = await axios.get('http://localhost:3001/builds')
+        console.log(res.data)
+        setBuilds(res.data)
+    }
+
+    useEffect(() => {
+        getBuilds()
+      }, [])
+
   
       return (
           <div className="case-container">
               <h1>Builds</h1>
               <ul>
-                  { props.builds.map((buildItem) => (
+                  { builds.map((buildItem) => (
                       <Build
                       key={ buildItem.name } 
                       name={ buildItem.name }

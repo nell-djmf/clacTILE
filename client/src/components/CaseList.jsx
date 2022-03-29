@@ -12,13 +12,16 @@ const CaseList = (props) => {
         setCases(res.data)
     }
     
+    useEffect(() => {
+        getCases()
+      }, [])
 
   
       return (
           <div className="case-container">
               <h1>Cases</h1>
               <ul>
-                  { props.cases.map((caseItem) => (
+                  { cases.map((caseItem) => (
                       <Case
                       key={ caseItem.name } 
                       name={ caseItem.name }

@@ -9,7 +9,7 @@ const User = (props) => {
             <li>
               <div className='user-card'>
                 <h2>{props.name}</h2>
-                <h3>Builds: list of builds </h3>
+                <h3>Builds</h3>
               </div>
             </li>
           </div>

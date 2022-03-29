@@ -4,17 +4,29 @@ import axios from 'axios'
 
 const SwitchList = (props) => {
 
+    const [switches, setSwitches] = useState([])
+
+    const getSwitches = async () => {
+        const res = await axios.get('http://localhost:3001/switches')
+        console.log(res.data)
+        setSwitches(res.data)
+    }
+
+    useEffect(() => {
+        getSwitches()
+      }, [])
+
   
       return (
           <div className="switch-container">
               <h1>Switches</h1>
               <ul>
-                  { props.switches.map((switchItem) => (
+                  { switches.map((switchItem) => (
                       <Switch
                       key={ switchItem.name } 
                       name={ switchItem.name }
                       type={ switchItem.type }
-                      material={ switchItem.material }
+                      actuation={ switchItem.actuation }
                       color={ switchItem.color }                  
                       />
                   ))
@@ -22,6 +34,6 @@ const SwitchList = (props) => {
               </ul>
           </div>
       )
-  }
+}
   
   export default SwitchList

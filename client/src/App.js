@@ -11,29 +11,7 @@ import SwitchList from './components/SwitchList'
 
 const App = () => {
 
-
-  const [users, setUsers] = useState([])
-  const [cases, setCases] = useState([])
-  const [keycaps, setKeycaps] = useState([])
   const [switches, setSwitches] = useState([])
-
-  const getUsers = async () => {
-    const res = await axios.get('http://localhost:3001/users')
-    console.log(res.data)
-    setUsers(res.data)
-  }
-
-  const getCases = async () => {
-    const res = await axios.get('http://localhost:3001/cases')
-    console.log(res.data)
-    setCases(res.data)
-  }
-
-  const getKeycaps = async () => {
-    const res = await axios.get('http://localhost:3001/keycaps')
-    console.log(res.data)
-    setKeycaps(res.data)
-  }
 
   const getSwitches = async () => {
     const res = await axios.get('http://localhost:3001/switches')
@@ -54,9 +32,9 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={ <Homepage /> } />
-          <Route path="/users" element={ <UserList users={ users } /> } />
-          <Route path="/cases" element={ <CaseList cases={ cases }/> } />
-          <Route path="/keycaps" element={ <KeycapList  keycaps={ keycaps } /> } />
+          <Route path="/users" element={ <UserList /> } />
+          <Route path="/cases" element={ <CaseList /> } />
+          <Route path="/keycaps" element={ <KeycapList  /> } />
           <Route path="/switches" element={ <SwitchList switches={ switches } /> } />
         </Routes>
       </main>

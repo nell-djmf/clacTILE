@@ -10,7 +10,7 @@ const Build = (props) => {
               <div className='build-card'>
                 <h2>{props.name}</h2>
                 <h3>Case: { props.case_id } </h3>
-                <h3>Keycaps: { props.keycaps_id } </h3>
+                <h3>Keycaps: { props.keycap_id } </h3>
                 <h3>Switches: { props.switch_id } </h3>
               </div>
             </li>
