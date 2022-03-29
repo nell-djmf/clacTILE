@@ -29,9 +29,9 @@ const ListDetail = (props) => {
                       <Build
                       key={ buildItem.name } 
                       name={ buildItem.name }
-                      case={ buildItem.case_id }
-                      keycap={ buildItem.keycap_id }
-                      switch={ buildItem.switch_id }                  
+                      case={ buildItem.case_id.name }
+                      keycap={ buildItem.keycap_id.name }
+                      switch={ buildItem.switch_id.name }                  
                       />
                   ))
                   }

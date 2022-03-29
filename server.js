@@ -60,12 +60,16 @@ app.get('/lists/caster_class', async (req, res) => {
 })
 
 app.get('/users/Rockforce80', async (req, res) => {
-  const rbuilds = await Build.find({ list_id: "6242077933fca125db484259" })
+  const rbuilds = await Build.find({ list_id: "6242077933fca125db484259" }).populate({
+    path: 'case_id keycap_id switch_id',
+  })
   res.json(rbuilds)
 })
 
 app.get('/users/caster_class', async (req, res) => {
-  const cbuilds = await Build.find({ list_id: "6242077933fca125db48425a" })
+  const cbuilds = await Build.find({ list_id: "6242077933fca125db48425a" }).populate({
+    path: 'case_id keycap_id switch_id',
+  })
   res.json(cbuilds)
 })
 
