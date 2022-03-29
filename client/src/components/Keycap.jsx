@@ -8,7 +8,7 @@ const Keycap = (props) => {
           <div>
             <li>
               <div className='keycap-card'>
-              <h2>{ props.name }</h2>
+              <button onClick={props.addKeycap}>{ props.name }</button>
               <h3>Profile: { props.profile } </h3>
               <h3>Material: { props.material } </h3>
               <h3>Type: { props.lettering } </h3>

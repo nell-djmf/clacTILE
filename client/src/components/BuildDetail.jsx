@@ -1,11 +1,12 @@
 import Build from "./Build"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
-const ListDetail = (props) => {
+const BuildDetail = (props) => {
 
     const [builds, setBuilds] = useState([])
 
@@ -20,10 +21,24 @@ const ListDetail = (props) => {
         getBuilds()
       }, [])
 
+
+
+    // const addNewBuild = async () => {
+    //     let buildName = prompt('Enter name for new build')
+    //     const res = await axios.post(`http://localhost:3001/users/${props.name}/create/${buildName}`)
+    // }
+
+    let navigate = useNavigate()
+
+  
+    const buildBoard = (e) => {
+      navigate(`/cases`)
+    }
+
   
       return (
           <div className="build-container">
-              <h1>Builds</h1>
+              <h1>{props.name}'s Builds</h1>
               <ul>
                   { builds.map((buildItem) => (
                       <Build
@@ -36,8 +51,9 @@ const ListDetail = (props) => {
                   ))
                   }
               </ul>
+              <button onClick={buildBoard}>Add New</button>
           </div>
       )
   }
   
-  export default ListDetail
+  export default BuildDetail

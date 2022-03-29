@@ -1,6 +1,7 @@
 import Keycap from "./Keycap"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const KeycapList = (props) => {
 
@@ -9,13 +10,21 @@ const KeycapList = (props) => {
 
     const getKeycaps = async () => {
         const res = await axios.get('http://localhost:3001/keycaps')
-        console.log(res.data)
         setKeycaps(res.data)
     }
 
     useEffect(() => {
         getKeycaps()
       }, [])
+
+    let navigate = useNavigate()
+
+    const addKeycap = (e) => {
+        localStorage.setItem('keycap', e.target.innerHTML)
+        console.log(localStorage)
+        navigate(`/switches`)
+    }
+
 
   
       return (
@@ -29,7 +38,8 @@ const KeycapList = (props) => {
                       profile={ keycapItem.profile }
                       material={ keycapItem.material }
                       lettering={ keycapItem.lettering }
-                      color={ keycapItem.color }                  
+                      color={ keycapItem.color }
+                      addKeycap={addKeycap}                  
                       />
                   ))
                   }

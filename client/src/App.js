@@ -8,8 +8,9 @@ import UserList from './components/UserList'
 import CaseList from './components/CaseList'
 import KeycapList from './components/KeycapList'
 import SwitchList from './components/SwitchList'
-import ListDetail from './components/ListDetail';
-
+import BuildDetail from './components/BuildDetail';
+import { useNavigate } from 'react-router-dom';
+import Case from './components/Case';
 
 const App = () => {
 
@@ -25,6 +26,8 @@ const App = () => {
       getUsers()
     }, [])
 
+
+
   return (
     <div className="App">
       <header>
@@ -34,8 +37,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={ <Homepage /> } />
           <Route path="/users" element={ <UserList users={users}/> } />
-          <Route path="/users/Rockforce80" element={ <ListDetail name={'Rockforce80'}/> } />
-          <Route path="/users/caster_class" element={ <ListDetail name={'caster_class'}/> } />
+          <Route path="/users/Rockforce80" element={ <BuildDetail name={'Rockforce80'}/> } />
+          <Route path="/users/caster_class" element={ <BuildDetail name={'caster_class'}/> } />
           <Route path="/cases" element={ <CaseList /> } />
           <Route path="/keycaps" element={ <KeycapList  /> } />
           <Route path="/switches" element={ <SwitchList /> } />

@@ -12,8 +12,9 @@ const User = (props) => {
 
   const getLists = async () => {
     const res = await axios.get(`http://localhost:3001/lists/${props.name}`)
-    console.log(res.data)
     setLists(res.data)
+    localStorage.clear('test')
+    console.log(localStorage)
   }
 
   useEffect(() => {

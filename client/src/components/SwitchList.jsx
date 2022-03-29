@@ -1,6 +1,7 @@
 import Switch from "./Switch"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const SwitchList = (props) => {
 
@@ -8,7 +9,6 @@ const SwitchList = (props) => {
 
     const getSwitches = async () => {
         const res = await axios.get('http://localhost:3001/switches')
-        console.log(res.data)
         setSwitches(res.data)
     }
 
@@ -16,6 +16,15 @@ const SwitchList = (props) => {
         getSwitches()
       }, [])
 
+    let navigate = useNavigate()
+
+    
+
+    const addSwitch = (e) => {
+        localStorage.setItem('switch', e.target.innerHTML)
+        console.log(localStorage)
+        navigate(`/users`)
+    }
   
       return (
           <div className="switch-container">
@@ -27,7 +36,8 @@ const SwitchList = (props) => {
                       name={ switchItem.name }
                       type={ switchItem.type }
                       actuation={ switchItem.actuation }
-                      color={ switchItem.color }                  
+                      color={ switchItem.color }
+                      addSwitch={addSwitch}                  
                       />
                     ))
                   }

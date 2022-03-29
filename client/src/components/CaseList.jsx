@@ -1,6 +1,7 @@
 import Case from "./Case";
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const CaseList = (props) => {
 
@@ -8,7 +9,6 @@ const CaseList = (props) => {
 
     const getCases = async () => {
         const res = await axios.get('http://localhost:3001/cases')
-        console.log(res.data)
         setCases(res.data)
     }
     
@@ -16,6 +16,18 @@ const CaseList = (props) => {
         getCases()
       }, [])
 
+
+    let navigate = useNavigate()
+
+    const addCase = (e) => {
+        localStorage.setItem('case', e.target.innerHTML)
+        console.log(localStorage)
+        navigate(`/keycaps`)
+    }
+
+
+
+    
   
       return (
           <div className="case-container">
@@ -27,7 +39,8 @@ const CaseList = (props) => {
                       name={ caseItem.name }
                       layout={ caseItem.layout }
                       material={ caseItem.material }
-                      color={ caseItem.color }                  
+                      color={ caseItem.color }
+                      addCase={addCase}                  
                       />
                   ))
                   }

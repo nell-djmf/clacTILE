@@ -11,6 +11,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(logger('dev'))
+app.use(express.static(`${__dirname}/client/build`))
 
 
 
@@ -73,6 +74,23 @@ app.get('/users/caster_class', async (req, res) => {
   res.json(cbuilds)
 })
 
+// app.post('/users/Rockforce80/create/:buildname', async (req, res) => {
+//   let namePlaceholder = req.params.buildname
+//   const newBuild = Build.create({
+//     name: namePlaceholder,
+//     user_id: "6242058b2892d64c5e35b359",
+//     list_id: "6242077933fca125db484259",
+//     case_id: 'empty',
+//     keycap_id: 'empty',
+    
+//   })
+//   res.json(newBuild)
+// })
+
+
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`)

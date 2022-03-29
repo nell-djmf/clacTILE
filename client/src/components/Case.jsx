@@ -8,7 +8,7 @@ const Case = (props) => {
           <div>
             <li>
               <div className='case-card'>
-                <h2>{props.name}</h2>
+                <button onClick={props.addCase}>{props.name}</button>
                 <h3>Layout: { props.layout } </h3>
                 <h3>Material: { props.material } </h3>
                 <h3>Color: { props.color } </h3>
