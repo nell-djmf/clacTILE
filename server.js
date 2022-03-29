@@ -59,12 +59,12 @@ app.get('/lists/caster_class', async (req, res) => {
   res.json(casterList)
 })
 
-app.get('/rockforce/builds', async (req, res) => {
+app.get('/users/Rockforce80', async (req, res) => {
   const rbuilds = await Build.find({ list_id: "6242077933fca125db484259" })
   res.json(rbuilds)
 })
 
-app.get('/caster/builds', async (req, res) => {
+app.get('/users/caster_class', async (req, res) => {
   const cbuilds = await Build.find({ list_id: "6242077933fca125db48425a" })
   res.json(cbuilds)
 })

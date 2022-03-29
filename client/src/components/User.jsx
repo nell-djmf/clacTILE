@@ -2,20 +2,32 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import List from './List'
+import { useNavigate } from 'react-router-dom'
+
+
 
 const User = (props) => {
 
-    const [lists, setLists] = useState([])
+  const [lists, setLists] = useState([])
 
-    const getLists = async () => {
-        const res = await axios.get(`http://localhost:3001/lists/${props.name}`)
-        console.log(res.data)
-        setLists(res.data)
-    }
+  const getLists = async () => {
+    const res = await axios.get(`http://localhost:3001/lists/${props.name}`)
+    console.log(res.data)
+    setLists(res.data)
+  }
 
-    useEffect(() => {
-        getLists()
-      }, [])
+  useEffect(() => {
+    getLists()
+  }, [])
+
+
+  let navigate = useNavigate()
+
+  
+  const showBuilds = (e) => {
+    navigate(`/users/${props.name}`)
+  }
+
 
 
     return (
@@ -27,7 +39,8 @@ const User = (props) => {
                     { lists.map((listItem) => (
                         <List
                         key={ listItem.name } 
-                        name={ listItem.name }               
+                        name={ listItem.name }
+                        showBuilds={ showBuilds }            
                         />
                         ))
                     }

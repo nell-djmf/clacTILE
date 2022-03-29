@@ -2,13 +2,16 @@ import Build from "./Build"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const BuildList = (props) => {
+
+
+
+const ListDetail = (props) => {
 
     const [builds, setBuilds] = useState([])
 
 
     const getBuilds = async () => {
-        const res = await axios.get('http://localhost:3001/builds')
+        const res = await axios.get(`http://localhost:3001/users/${props.name}`)
         console.log(res.data)
         setBuilds(res.data)
     }
@@ -37,4 +40,4 @@ const BuildList = (props) => {
       )
   }
   
-  export default BuildList
+  export default ListDetail
