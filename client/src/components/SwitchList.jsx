@@ -1,4 +1,6 @@
 import Switch from "./Switch"
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const SwitchList = (props) => {
 

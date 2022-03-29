@@ -1,4 +1,6 @@
 import Keycap from "./Keycap"
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const KeycapList = (props) => {
 
