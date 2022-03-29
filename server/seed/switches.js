@@ -30,12 +30,6 @@ const main = async () => {
       color: 'Brown'
     },
     {
-      name: 'CherryMX Brown',
-      type: 'Tactile',
-      actuation: '55g',
-      color: 'Brown'
-    },
-    {
       name: 'Glorious Panda',
       type: 'Tactile',
       actuation: '67g',

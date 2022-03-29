@@ -11,19 +11,6 @@ import SwitchList from './components/SwitchList'
 
 const App = () => {
 
-  const [switches, setSwitches] = useState([])
-
-  const getSwitches = async () => {
-    const res = await axios.get('http://localhost:3001/switches')
-    console.log(res.data)
-    setSwitches(res.data)
-  }
-
-  // getCases()
-  // getKeycaps()
-  // getSwitches()
-  // getUsers()
-
   return (
     <div className="App">
       <header>
@@ -35,7 +22,7 @@ const App = () => {
           <Route path="/users" element={ <UserList /> } />
           <Route path="/cases" element={ <CaseList /> } />
           <Route path="/keycaps" element={ <KeycapList  /> } />
-          <Route path="/switches" element={ <SwitchList switches={ switches } /> } />
+          <Route path="/switches" element={ <SwitchList /> } />
         </Routes>
       </main>
     </div>

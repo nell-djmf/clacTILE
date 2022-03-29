@@ -29,7 +29,7 @@ const SwitchList = (props) => {
                       actuation={ switchItem.actuation }
                       color={ switchItem.color }                  
                       />
-                  ))
+                    ))
                   }
               </ul>
           </div>

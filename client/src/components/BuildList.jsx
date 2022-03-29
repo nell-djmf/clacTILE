@@ -19,7 +19,7 @@ const BuildList = (props) => {
 
   
       return (
-          <div className="case-container">
+          <div className="build-container">
               <h1>Builds</h1>
               <ul>
                   { builds.map((buildItem) => (

@@ -25,7 +25,7 @@ const UserList = (props) => {
                       key={ userItem.name } 
                       name={ userItem.name }              
                       />
-                  ))
+                    ))
                   }
               </ul>
           </div>

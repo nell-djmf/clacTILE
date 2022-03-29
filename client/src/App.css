@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://i.imgur.com/DJ6jiB4.jpg');
+  /* background-image: url('https://i.imgur.com/DJ6jiB4.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #2B2A28;
@@ -26,4 +26,19 @@ body {
   padding: 1em;
   min-height: 2em;
   font-family: 'Georgia';
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
