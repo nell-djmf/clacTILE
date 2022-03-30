@@ -4,6 +4,7 @@ const logger = require('morgan')
 const PORT = process.env.PORT || 3001
 const db = require('./server/db')
 const { User, Build, Case, Switch, Keycap } = require('./server/models')
+const res = require('express/lib/response')
 const app = express()
 
 
@@ -59,12 +60,18 @@ app.post('/builds/create', async (req, res) => {
   res.json(newBuild)
 })
 
-// app.post('/new', async (req, res) => {
-//   const updateNew = Build.findOneAndUpdate
-//   ({ $text: { $search: "placeholder" }}, { new: true })
-//   res.json(updateNew)
-// })
+app.post('/new', async (req, res) => {
+  const updateNew = Build.findOneAndUpdate({ 
+    $text: { $search: req.body._id }}, { new: true })
+  res.json(updateNew)
+})
 
+app.delete('/delete', async (req, res) => {
+  console.log(req.body)
+  const deleteBuild = await Build.findByIdAndDelete(req.body._id)
+  console.log(deleteBuild)
+  res.status(200).json('deleted successfully!')
+})
 
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)

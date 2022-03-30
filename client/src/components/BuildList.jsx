@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 const BuildList = (props) => {
 
+    //GET BOARDS
     const [builds, setBuilds] = useState([])
 
 
@@ -23,30 +24,63 @@ const BuildList = (props) => {
       }, [])
 
 
-    // const [newKbuild, setNewKbuild] = useState({
-    //     name: '',
-    //     case_id: '',
-    //     keycap_id: '',
-    //     switch_id: ''
-    //   })
-
-    let buildName = ''
-
+      
+      
+      
+      //ADD BOARD
+      // const [newKbuild, setNewKbuild] = useState({
+      //     name: '',
+      //     case_id: '',
+      //     keycap_id: '',
+      //     switch_id: ''
+      //   })
+      let buildName = ''
+      
 
     const buildCompile = () => {
         buildName = prompt('Name your build')
         // setNewKbuild({name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch')})
     }
 
+
     const addNewBuild = async () => {
-        const res = await axios.post(`http://localhost:3001/builds/create`, { name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch') })
+        const res = await axios.post(`http://localhost:3001/builds/create`, { 
+            name: buildName, 
+            case_id: localStorage.getItem('case'), 
+            keycap_id: localStorage.getItem('keycap'), 
+            switch_id: localStorage.getItem('switch') 
+        })
     }
 
-    let navigate = useNavigate()
 
-  
+    let navigate = useNavigate()
     const buildBoard = (e) => {
       navigate(`/cases`)
+    }
+
+
+
+
+    //DELETE BOARD
+
+    const [target, setTarget] = useState('')
+
+    const deleteBuild = async () => {
+        const res = await axios.delete(`http://localhost:3001/delete`, {
+            _id: target
+        })
+    }
+
+    //EDIT BOARD
+
+    const updateBuild = async () => {
+        const res = await axios.post(`http://localhost:3001/update/${target}`, {
+            name: buildName, 
+            case_id: localStorage.getItem('case'), 
+            keycap_id: localStorage.getItem('keycap'), 
+            switch_id: localStorage.getItem('switch') 
+
+        })
     }
 
   
@@ -56,11 +90,13 @@ const BuildList = (props) => {
               <ul>
                   { builds.map((buildItem) => (
                       <Build
-                      key={ buildItem.name } 
+                      key={ buildItem._id } 
                       name={ buildItem.name }
                       case={ buildItem.case_id.name }
                       keycap={ buildItem.keycap_id.name }
-                      switch={ buildItem.switch_id.name }                  
+                      switch={ buildItem.switch_id.name }
+                      setTarget = { setTarget }
+                      onClick={() => setTarget(buildItem._id)}                  
                       />
                   ))
                   }
@@ -68,6 +104,8 @@ const BuildList = (props) => {
               <button onClick={buildBoard}>Add New</button>
               <button onClick={buildCompile}>Compile</button>
               <button onClick={addNewBuild}>Post</button>
+              <button onClick={deleteBuild}>Delete</button>
+              <button>Update</button>
           </div>
       )
   }

@@ -9,7 +9,7 @@ const Build = (props) => {
           <div>
             <li>
               <div className='build-card'>
-                <h2>{props.name}</h2>
+                <button onClick={props.onClick}>Select</button><h2>{props.name}</h2>
                 <h3>Case: { props.case } </h3>
                 <h3>Keycaps: { props.keycap } </h3>
                 <h3>Switches: { props.switch } </h3>
