@@ -66,11 +66,15 @@ const BuildList = (props) => {
     const [target, setTarget] = useState('')
 
     const deleteBuild = async () => {
-        const res = await axios.delete(`http://localhost:3001/delete`, {
-            _id: target
-        })
+        console.log(target)
+        await axios({
+            url: `http://localhost:3001/delete`,
+            method: 'delete',
+            data: {target}
+          })
     }
 
+    
     //EDIT BOARD
 
     const updateBuild = async () => {

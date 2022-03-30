@@ -68,7 +68,7 @@ app.post('/new', async (req, res) => {
 
 app.delete('/delete', async (req, res) => {
   console.log(req.body)
-  const deleteBuild = await Build.findByIdAndDelete(req.body._id)
+  const deleteBuild = await Build.findByIdAndDelete(req.body.target)
   console.log(deleteBuild)
   res.status(200).json('deleted successfully!')
 })
