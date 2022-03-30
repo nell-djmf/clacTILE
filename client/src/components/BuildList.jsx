@@ -61,6 +61,7 @@ const BuildList = (props) => {
     
     //EDIT BOARD
     const updateBuild = async () => {
+        buildName = prompt('Name your build')
         await axios.post(`http://localhost:3001/update/${target}`, {
             name: buildName, 
             case_id: localStorage.getItem('case'), 
@@ -86,10 +87,10 @@ const BuildList = (props) => {
                         ))
                     }
                 </ul>
-                <button onClick={buildBoard}>Add New</button>
-                <button onClick={addNewBuild}>Post</button>
-                <button onClick={deleteBuild}>Delete</button>
-                <button>Update</button>
+                <button onClick={buildBoard}>Add Parts</button>
+                <button onClick={addNewBuild}>Add Parts to New Build</button>
+                <button onClick={deleteBuild}>Delete Build</button>
+                <button onClick={updateBuild}>Update Build</button>
             </div>
     )
 }

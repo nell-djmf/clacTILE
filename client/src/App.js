@@ -10,6 +10,7 @@ import SwitchList from './components/SwitchList'
 import BuildList from './components/BuildList';
 import { useNavigate } from 'react-router-dom';
 import Case from './components/Case';
+import Preview from './components/Preview';
 
 const App = () => {
 
@@ -43,6 +44,9 @@ const App = () => {
           <Route path="/keycaps" element={ <KeycapList  /> } />
           <Route path="/switches" element={ <SwitchList /> } />
         </Routes>
+        <footer>
+          <Preview />
+        </footer>
       </main>
     </div>
   )

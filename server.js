@@ -60,32 +60,30 @@ app.post('/builds/create', async (req, res) => {
   res.json(newBuild)
 })
 
+app.post('/update/:target', async (req, res) => {
+  let target = req.params.target
+  console.log(req.body)
+  const updateBuild = await Build.findOneAndUpdate(
+    {_id: target}, 
+    { $set:
+      {
+        name: req.body.name,
+        case_id: req.body.case_id,
+        keycap_id: req.body.keycap_id,
+        switch_id: req.body.switch_id
+      }
+    }, 
+    { new: true })
+    res.status(200).json(updateBuild)
+  })
+  
 app.delete('/delete', async (req, res) => {
   console.log(req.body)
   const deleteBuild = await Build.findByIdAndDelete(req.body.target)
   console.log(deleteBuild)
   res.status(200).json('deleted successfully!')
 })
-
-app.post('/update/:target', async (req, res) => {
-  let target = req.params.target
-  console.log(req.body)
-  const updateBuild = await Build.findOneAndUpdate(
-    {_id: target}, 
-      { $set:
-        {
-          name: req.body.name,
-          case_id: req.body.case_id,
-          keycap_id: req.body.keycap_id,
-          switch_id: req.body.switch_id
-        }
-      }, 
-      { new: true })
-  console.log(updateBuild)
-  res.status(200).json('updated successfully!')
-})
-
-
+  
 
 
 app.get('/*', (req, res) => {
