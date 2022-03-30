@@ -56,14 +56,8 @@ app.post('/builds/create', async (req, res) => {
     case_id: req.body.case_id,
     keycap_id: req.body.keycap_id,
     switch_id: req.body.switch_id
-  }, req.body)
+  })
   res.json(newBuild)
-})
-
-app.post('/new', async (req, res) => {
-  const updateNew = Build.findOneAndUpdate({ 
-    $text: { $search: req.body._id }}, { new: true })
-  res.json(updateNew)
 })
 
 app.delete('/delete', async (req, res) => {
@@ -72,6 +66,22 @@ app.delete('/delete', async (req, res) => {
   console.log(deleteBuild)
   res.status(200).json('deleted successfully!')
 })
+
+app.put('/update', async (req, res) => {
+  console.log(req.body)
+  const updateBuild = Build.findByIdAndUpdate("62447edf34604e3cb8716e43", {
+    name: req.body.name,
+    user_id: "62438405a6d0c46a33b546d8",
+    case_id: req.body.case_id,
+    keycap_id: req.body.keycap_id,
+    switch_id: req.body.switch_id
+  })
+  console.log(updateBuild)
+  res.status(200).json('updated successfully!')
+})
+
+
+
 
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)

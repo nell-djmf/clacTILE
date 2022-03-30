@@ -27,18 +27,12 @@ const BuildList = (props) => {
       
       
       
-      //ADD BOARD
-      // const [newKbuild, setNewKbuild] = useState({
-      //     name: '',
-      //     case_id: '',
-      //     keycap_id: '',
-      //     switch_id: ''
-      //   })
+    //ADD BOARD
     let buildName = ''
       
     const addNewBuild = async () => {
         buildName = prompt('Name your build')
-        const res = await axios.post(`http://localhost:3001/builds/create`, { 
+        await axios.post(`http://localhost:3001/builds/create`, { 
             name: buildName, 
             case_id: localStorage.getItem('case'), 
             keycap_id: localStorage.getItem('keycap'), 
@@ -53,7 +47,6 @@ const BuildList = (props) => {
     }
 
     //DELETE BOARD
-
     const [target, setTarget] = useState('')
 
     const deleteBuild = async () => {
@@ -62,46 +55,43 @@ const BuildList = (props) => {
             url: `http://localhost:3001/delete`,
             method: 'delete',
             data: {target}
-          })
+        })
     }
 
     
     //EDIT BOARD
-
     const updateBuild = async () => {
-        const res = await axios.post(`http://localhost:3001/update/${target}`, {
+        await axios.post(`http://localhost:3001/update/${target}`, {
             name: buildName, 
             case_id: localStorage.getItem('case'), 
             keycap_id: localStorage.getItem('keycap'), 
             switch_id: localStorage.getItem('switch') 
-
         })
     }
 
   
-      return (
-          <div className="build-container">
-              <h1>{props.users}'s Builds</h1>
-              <ul>
-                  { builds.map((buildItem) => (
-                      <Build
-                      key={ buildItem._id } 
-                      name={ buildItem.name }
-                      case={ buildItem.case_id.name }
-                      keycap={ buildItem.keycap_id.name }
-                      switch={ buildItem.switch_id.name }
-                      setTarget = { setTarget }
-                      onClick={() => setTarget(buildItem._id)}                  
-                      />
-                  ))
-                  }
-              </ul>
-              <button onClick={buildBoard}>Add New</button>
-              <button onClick={addNewBuild}>Post</button>
-              <button onClick={deleteBuild}>Delete</button>
-              <button>Update</button>
-          </div>
-      )
-  }
+    return (
+        <div className="build-container">
+            <h1>{props.users}'s Builds</h1>
+                <ul>
+                    { builds.map((buildItem) => (
+                        <Build
+                        key={ buildItem._id } 
+                        name={ buildItem.name }
+                        case={ buildItem.case_id.name }
+                        keycap={ buildItem.keycap_id.name }
+                        switch={ buildItem.switch_id.name }
+                        onClick={() => setTarget(buildItem._id)}                  
+                        />
+                        ))
+                    }
+                </ul>
+                <button onClick={buildBoard}>Add New</button>
+                <button onClick={addNewBuild}>Post</button>
+                <button onClick={deleteBuild}>Delete</button>
+                <button>Update</button>
+            </div>
+    )
+}
   
   export default BuildList
