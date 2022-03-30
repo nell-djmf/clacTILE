@@ -50,7 +50,7 @@ app.get('/builds', async (req, res) => {
 })
 
 app.post('/builds/create', async (req, res) => {
-  const newBuild = Build.create({
+  const newBuild = await Build.create({
     name: req.body.name,
     user_id: "62438405a6d0c46a33b546d8",
     case_id: req.body.case_id,
@@ -67,20 +67,20 @@ app.delete('/delete', async (req, res) => {
   res.status(200).json('deleted successfully!')
 })
 
-app.post('/update', async (req, res) => {
+app.post('/update/:target', async (req, res) => {
+  let target = req.params.target
   console.log(req.body)
-  const updateBuild = Build.findOneAndUpdate(
-    {_id: req.body.target}, 
+  const updateBuild = await Build.findOneAndUpdate(
+    {_id: target}, 
       { $set:
         {
           name: req.body.name,
-          user_id: "62438405a6d0c46a33b546d8",
           case_id: req.body.case_id,
           keycap_id: req.body.keycap_id,
           switch_id: req.body.switch_id
         }
       }, 
-      { new: true})
+      { new: true })
   console.log(updateBuild)
   res.status(200).json('updated successfully!')
 })
