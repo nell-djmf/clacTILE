@@ -34,16 +34,10 @@ const BuildList = (props) => {
       //     keycap_id: '',
       //     switch_id: ''
       //   })
-      let buildName = ''
+    let buildName = ''
       
-
-    const buildCompile = () => {
-        buildName = prompt('Name your build')
-        // setNewKbuild({name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch')})
-    }
-
-
     const addNewBuild = async () => {
+        buildName = prompt('Name your build')
         const res = await axios.post(`http://localhost:3001/builds/create`, { 
             name: buildName, 
             case_id: localStorage.getItem('case'), 
@@ -57,9 +51,6 @@ const BuildList = (props) => {
     const buildBoard = (e) => {
       navigate(`/cases`)
     }
-
-
-
 
     //DELETE BOARD
 
@@ -106,7 +97,6 @@ const BuildList = (props) => {
                   }
               </ul>
               <button onClick={buildBoard}>Add New</button>
-              <button onClick={buildCompile}>Compile</button>
               <button onClick={addNewBuild}>Post</button>
               <button onClick={deleteBuild}>Delete</button>
               <button>Update</button>
