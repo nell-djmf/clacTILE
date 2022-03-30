@@ -26,11 +26,6 @@ app.get('/users', async (req, res) => {
 })
 
 
-// app.get('/builds', async (req, res) => {
-//   const builds = await Build.find()
-//   res.json(builds)
-// })
-
 app.get('/cases', async (req, res) => {
   const cases = await Case.find()
   res.json(cases)
@@ -53,20 +48,21 @@ app.get('/builds', async (req, res) => {
   res.json(builds)
 })
 
-// app.post('/users/Rockforce80/create/:buildname/:case/:keycap/:switch', async (req, res) => {
-//   let namePlaceholder = req.params.buildname
-//   let casePlaceholder = req.params.case
-//   let keycapPlaceholder = req.params.keycap
-//   let switchPlaceholder = req.params.switch
-//   const newBuild = Build.create({
-//     name: namePlaceholder,
-//     user_id: "6242058b2892d64c5e35b359",
-//     list_id: "6242077933fca125db484259",
-//     case_id: casePlaceholder,
-//     keycap_id: keycapPlaceholder,
-//     switch_id: switchPlaceholder
-//   })
-//   res.json(newBuild)
+app.post('/builds/create', async (req, res) => {
+  const newBuild = Build.create({
+    name: req.body.name,
+    user_id: "62438405a6d0c46a33b546d8",
+    case_id: req.body.case_id,
+    keycap_id: req.body.keycap_id,
+    switch_id: req.body.switch_id
+  }, req.body)
+  res.json(newBuild)
+})
+
+// app.post('/new', async (req, res) => {
+//   const updateNew = Build.findOneAndUpdate
+//   ({ $text: { $search: "placeholder" }}, { new: true })
+//   res.json(updateNew)
 // })
 
 

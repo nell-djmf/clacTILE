@@ -11,5 +11,6 @@ const Build = new Schema(
   { timestamps: true }
 )
 
+Build.index({'$**': 'text'})
 
 module.exports = Build

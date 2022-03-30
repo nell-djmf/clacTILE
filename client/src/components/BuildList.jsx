@@ -1,35 +1,3 @@
-// import User from "./User"
-
-
-// const UserList = (props) => {
-
-
-//     const buildCompile = () => {
-//         let buildName = prompt('Name your build')
-//         props.setNewKbuild({name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch')})
-//         localStorage.clear()
-//         }
-
-  
-//       return (
-//           <div className="user-container">
-//               <h1>Users</h1>
-//               <ul>
-//                   { props.users.map((userItem) => (
-//                       <User
-//                       key={ userItem.name } 
-//                       name={ userItem.name }
-//                       buildCompile={buildCompile}              
-//                       />
-//                     ))
-//                   }
-//               </ul>
-//           </div>
-//       )
-// }
-  
-//   export default UserList
-
 
 import Build from "./Build"
 import { useState, useEffect } from 'react'
@@ -55,11 +23,24 @@ const BuildList = (props) => {
       }, [])
 
 
+    // const [newKbuild, setNewKbuild] = useState({
+    //     name: '',
+    //     case_id: '',
+    //     keycap_id: '',
+    //     switch_id: ''
+    //   })
 
-    // const addNewBuild = async () => {
-    //     let buildName = prompt('Enter name for new build')
-    //     const res = await axios.post(`http://localhost:3001/users/${props.name}/create/${buildName}`)
-    // }
+    let buildName = ''
+
+
+    const buildCompile = () => {
+        buildName = prompt('Name your build')
+        // setNewKbuild({name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch')})
+    }
+
+    const addNewBuild = async () => {
+        const res = await axios.post(`http://localhost:3001/builds/create`, { name: buildName, case_id: localStorage.getItem('case'), keycap_id: localStorage.getItem('keycap'), switch_id: localStorage.getItem('switch') })
+    }
 
     let navigate = useNavigate()
 
@@ -85,6 +66,8 @@ const BuildList = (props) => {
                   }
               </ul>
               <button onClick={buildBoard}>Add New</button>
+              <button onClick={buildCompile}>Compile</button>
+              <button onClick={addNewBuild}>Post</button>
           </div>
       )
   }

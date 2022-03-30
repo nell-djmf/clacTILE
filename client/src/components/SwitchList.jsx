@@ -24,7 +24,7 @@ const SwitchList = (props) => {
     const addSwitch = (e) => {
         localStorage.setItem('switch', e.target.innerHTML)
         console.log(localStorage)
-        navigate(`/users`)
+        navigate(`/builds`)
     }
 
   

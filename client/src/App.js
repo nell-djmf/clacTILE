@@ -25,12 +25,6 @@ const App = () => {
       getUsers()
     }, [])
 
-  const [newKbuild, setNewKbuild] = useState({
-    name: '',
-    case_id: '',
-    keycap_id: '',
-    switch_id: ''
-  })
 
 
 
@@ -44,8 +38,6 @@ const App = () => {
           <Route path="/" element={ <Homepage /> } />
           <Route path="/builds" element={ <BuildList 
           users={users}
-          newKbuild={newKbuild}
-          setNewKbuild={setNewKbuild}
           /> } />
           <Route path="/cases" element={ <CaseList /> } />
           <Route path="/keycaps" element={ <KeycapList  /> } />
