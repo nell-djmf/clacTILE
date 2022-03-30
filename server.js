@@ -67,15 +67,20 @@ app.delete('/delete', async (req, res) => {
   res.status(200).json('deleted successfully!')
 })
 
-app.put('/update', async (req, res) => {
+app.post('/update', async (req, res) => {
   console.log(req.body)
-  const updateBuild = Build.findByIdAndUpdate("62447edf34604e3cb8716e43", {
-    name: req.body.name,
-    user_id: "62438405a6d0c46a33b546d8",
-    case_id: req.body.case_id,
-    keycap_id: req.body.keycap_id,
-    switch_id: req.body.switch_id
-  })
+  const updateBuild = Build.findOneAndUpdate(
+    {_id: req.body.target}, 
+      { $set:
+        {
+          name: req.body.name,
+          user_id: "62438405a6d0c46a33b546d8",
+          case_id: req.body.case_id,
+          keycap_id: req.body.keycap_id,
+          switch_id: req.body.switch_id
+        }
+      }, 
+      { new: true})
   console.log(updateBuild)
   res.status(200).json('updated successfully!')
 })
