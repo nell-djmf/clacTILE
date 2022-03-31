@@ -32,6 +32,13 @@ app.get('/cases', async (req, res) => {
   res.json(cases)
 })
 
+app.get('/cases/:search', async (req, res) => {
+  const cases = await Case.find({ $text: { $search: req.params.search }})
+  res.json(cases)
+})
+
+
+
 app.get('/keycaps', async (req, res) => {
   const keycaps = await Keycap.find()
   res.json(keycaps)
@@ -51,6 +58,12 @@ app.get('/builds', async (req, res) => {
 
 app.get('/parts', async (req, res) => {
   const parts = await Part.find()
+  res.json(parts)
+})
+
+
+app.get('/parts/:search', async (req, res) => {
+  const parts = await Part.find({ $text: { $search: req.params.search }})
   res.json(parts)
 })
 

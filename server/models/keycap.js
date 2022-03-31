@@ -11,4 +11,7 @@ const Keycap = new Schema(
   { timestamps: true }
 )
 
+
+Keycap.index({'$**': 'text'})
+
 module.exports = Keycap

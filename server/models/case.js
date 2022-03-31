@@ -10,4 +10,7 @@ const Case = new Schema(
   { timestamps: true }
 )
 
+
+Case.index({'$**': 'text'})
+
 module.exports = Case

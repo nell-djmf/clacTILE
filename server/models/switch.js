@@ -10,4 +10,7 @@ const Switch = new Schema(
   { timestamps: true }
 )
 
+
+Switch.index({'$**': 'text'})
+
 module.exports = Switch
