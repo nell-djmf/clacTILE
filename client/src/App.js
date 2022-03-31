@@ -37,19 +37,20 @@ const App = () => {
       console.log(localStorage)
   }
   
-  // const getPreviewItems = async () => {
-  //   const res = await axios({
-  //     url: `http://localhost:3001/preview`,
-  //     method: 'get',
-  //     data: {preview}
-  //   })
-  //   console.log(res.data)
-  //   setBasket(res.data)
-  // }
+  const getPreviewItems = async () => {
+    const res = await axios({
+      url: `http://localhost:3001/preview`,
+      method: 'get',
+      data: {preview}
+    })
+    console.log(res.data)
+    setBasket(res.data)
+  }
 
-  // useEffect(() => {
-  //   getPreviewItems()
-  // }, [preview])
+  useEffect(() => {
+    getPreviewItems()
+    console.log(preview.case)
+  }, [preview])
 
 
 
@@ -70,7 +71,7 @@ const App = () => {
           <Route path="/switches" element={ <SwitchList  preview={preview} setPreview={setPreview}/> } />
         </Routes>
         <footer>
-          <Preview preview={preview} setPreview={setPreview}/>
+          <Preview preview={preview} setPreview={setPreview} basket={basket} setBasket={setBasket}/>
         </footer>
       </main>
     </div>
