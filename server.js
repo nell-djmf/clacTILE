@@ -53,7 +53,7 @@ app.get('/switches', async (req, res) => {
 })
 
 app.get('/switches/:search', async (req, res) => {
-  const switches = await Keycap.find({ $text: { $search: req.params.search }})
+  const switches = await Switch.find({ $text: { $search: req.params.search }})
   res.json(switches)
 })
 
