@@ -22,7 +22,6 @@ const KeycapList = (props) => {
     const addKeycap = (e) => {
         localStorage.setItem('keycap', e.target.innerHTML)
         console.log(localStorage)
-        props.setPreview({...props.preview, keycap: localStorage.getItem('keycap')})
         navigate(`/switches`)
     }
 

@@ -22,7 +22,6 @@ const CaseList = (props) => {
     const addCase = (e) => {
         localStorage.setItem('case', e.target.innerHTML)
         console.log(localStorage)
-        props.setPreview({case: localStorage.getItem('case')})
         navigate(`/keycaps`)
     }
   

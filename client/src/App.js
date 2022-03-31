@@ -10,15 +10,12 @@ import SwitchList from './components/SwitchList'
 import BuildList from './components/BuildList';
 import { useNavigate } from 'react-router-dom';
 import Case from './components/Case';
-import Preview from './components/Preview';
+
 
 const App = () => {
   
   const [users, setUsers] = useState([])
-  
-  const [preview, setPreview] = useState({})
-  
-  const [basket, setBasket] = useState([])
+
 
 
   const getUsers = async () => {
@@ -30,28 +27,7 @@ const App = () => {
     useEffect(() => {
       getUsers()
     }, [])
-
-
-    const clearPreview = () => {
-      localStorage.clear()
-      console.log(localStorage)
-  }
-  
-  const getPreviewItems = async () => {
-    const res = await axios({
-      url: `http://localhost:3001/preview`,
-      method: 'get',
-      data: {preview}
-    })
-    console.log(res.data)
-    setBasket(res.data)
-  }
-
-  useEffect(() => {
-    getPreviewItems()
-    console.log(preview.case)
-  }, [preview])
-
+    
 
 
 
@@ -64,15 +40,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={ <Homepage /> } />
           <Route path="/builds" element={ <BuildList 
-          users={users} preview={preview}
+          users={users}
           /> } />
-          <Route path="/cases" element={ <CaseList preview={preview} setPreview={setPreview} /> } />
-          <Route path="/keycaps" element={ <KeycapList  preview={preview} setPreview={setPreview}/> } />
-          <Route path="/switches" element={ <SwitchList  preview={preview} setPreview={setPreview}/> } />
+          <Route path="/cases" element={ <CaseList /> } />
+          <Route path="/keycaps" element={ <KeycapList  /> } />
+          <Route path="/switches" element={ <SwitchList  /> } />
         </Routes>
-        <footer>
-          <Preview preview={preview} setPreview={setPreview} basket={basket} setBasket={setBasket}/>
-        </footer>
       </main>
     </div>
   )

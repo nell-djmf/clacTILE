@@ -91,26 +91,6 @@ app.delete('/delete', async (req, res) => {
   res.status(200).json('deleted successfully!')
 })
   
-app.get('/preview/:kcase', async (req, res) => {
-  let kcase = req.params.kcase
-  const findItems = await Part.find({ id: kcase })
-  res.json(findItems)
-  console.log('this is find items' + findItems)
-})
-
-app.get('/preview/:keycap', async (req, res) => {
-  let keycap = req.params.keycap
-  const findItems = await Part.find({ id: keycap })
-  res.json(findItems)
-  console.log('this is find items' + findItems)
-})
-
-app.get('/preview/:kswitch', async (req, res) => {
-  let kswitch = req.params.kswitch
-  const findItems = await Part.find({ id: kswitch })
-  res.json(findItems)
-  console.log('this is find items' + findItems)
-})
 
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
