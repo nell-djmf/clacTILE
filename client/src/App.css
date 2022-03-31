@@ -71,3 +71,11 @@ a {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+#select:hover, #select:focus {
+  background-color: darkslategray;
+}
+
+.highlighter {
+  background-color: red;
+}

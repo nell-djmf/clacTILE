@@ -11,6 +11,7 @@ const BuildList = (props) => {
 
     //GET BOARDS
     const [builds, setBuilds] = useState([])
+    const [highlight, setHighlight] = useState([])
     const [change, setChange] = useState(false)
 
 
@@ -82,7 +83,7 @@ const BuildList = (props) => {
         setChange(false)
     }, [change])
 
-  
+
     return (
         <div className="build-container">
             <h1>{props.users}'s Builds</h1>
@@ -94,7 +95,11 @@ const BuildList = (props) => {
                         case={ buildItem.case_id.name }
                         keycap={ buildItem.keycap_id.name }
                         switch={ buildItem.switch_id.name }
-                        onClick={() => setTarget(buildItem._id)}                  
+                        onClick={(e) => {
+                            setTarget(buildItem._id)
+                            e.target.parentNode.classList.toggle("highlighter")
+                            console.log(e.target.parentNode)
+                            }}                  
                         />
                         ))
                     }

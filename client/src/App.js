@@ -8,8 +8,6 @@ import CaseList from './components/CaseList'
 import KeycapList from './components/KeycapList'
 import SwitchList from './components/SwitchList'
 import BuildList from './components/BuildList';
-import { useNavigate } from 'react-router-dom';
-import Case from './components/Case';
 
 
 const App = () => {
