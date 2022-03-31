@@ -11,6 +11,7 @@ const BuildList = (props) => {
 
     //GET BOARDS
     const [builds, setBuilds] = useState([])
+    const [change, setChange] = useState(false)
 
 
     const getBuilds = async () => {
@@ -39,6 +40,7 @@ const BuildList = (props) => {
             switch_id: localStorage.getItem('switch') 
         })
         localStorage.clear()
+        setChange(true)
     }
 
 
@@ -58,6 +60,7 @@ const BuildList = (props) => {
             data: {target}
         })
         localStorage.clear()
+        setChange(true)
     }
 
     
@@ -71,7 +74,13 @@ const BuildList = (props) => {
             switch_id: localStorage.getItem('switch') 
         })
         localStorage.clear()
+        setChange(true)
     }
+
+    useEffect(() => {
+        getBuilds()
+        setChange(false)
+    }, [change])
 
   
     return (
