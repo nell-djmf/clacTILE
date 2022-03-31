@@ -4,7 +4,7 @@ const BuildSchema = require('./Build')
 const CaseSchema = require('./Case')
 const KeycapSchema = require('./Keycap')
 const SwitchSchema = require('./Switch')
-const PartSchema = require('./Part')
+
 
 
 const User = mongoose.model('users', UserSchema)
@@ -12,7 +12,7 @@ const Build = mongoose.model('builds', BuildSchema)
 const Case = mongoose.model('cases', CaseSchema)
 const Keycap = mongoose.model('keycaps', KeycapSchema)
 const Switch = mongoose.model('switches', SwitchSchema)
-const Part = mongoose.model('parts', PartSchema)
+
 
 
 module.exports = {
@@ -20,6 +20,5 @@ module.exports = {
     Build,
     Case,
     Keycap,
-    Switch,
-    Part
+    Switch
 }

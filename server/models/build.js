@@ -6,7 +6,8 @@ const Build = new Schema(
     user_id: { type: Schema.Types.ObjectId, ref: 'user_id' },
     case_id: { type: Schema.Types.ObjectId, ref: 'cases' },
     keycap_id: { type: Schema.Types.ObjectId, ref: 'keycaps' },
-    switch_id: { type: Schema.Types.ObjectId, ref: 'switches' }
+    switch_id: { type: Schema.Types.ObjectId, ref: 'switches' },
+    image: { type: Schema.Types.ObjectId, ref: 'cases' }
 },
   { timestamps: true }
 )
