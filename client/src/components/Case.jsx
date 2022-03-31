@@ -5,7 +5,10 @@ const Case = (props) => {
 
     return (
         <div className="case">
-              <div className='case-card'>
+              <div className='case-card' style={{
+                backgroundImage: `url(${props.image})`,
+                backgroundSize: 'cover',
+                }}>
                 <h2>{props.name}</h2>
                 <h3>Layout: { props.layout } </h3>
                 <h3>Material: { props.material } </h3>

@@ -59,6 +59,7 @@ const CaseList = (props) => {
                       layout={ caseItem.layout }
                       material={ caseItem.material }
                       color={ caseItem.color }
+                      image={caseItem.image}
                       id={caseItem._id}
                       addCase={addCase}                  
                       />
