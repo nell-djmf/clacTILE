@@ -5,19 +5,34 @@ import { useNavigate } from 'react-router-dom'
 
 const KeycapList = (props) => {
 
+    let navigate = useNavigate()
     const [keycaps, setKeycaps] = useState([])
+    const [search, setSearch] = useState('')
+    const [isSearched, setIsSearched] = useState(false)
 
 
     const getKeycaps = async () => {
         const res = await axios.get('http://localhost:3001/keycaps')
+        console.log(res.data)
         setKeycaps(res.data)
     }
+
+    const getNewKeycaps = async () => {
+        const res = await axios.get(`http://localhost:3001/keycaps/${search}`)
+        setKeycaps(res.data)
+    }
+    
 
     useEffect(() => {
         getKeycaps()
       }, [])
 
-    let navigate = useNavigate()
+
+    useEffect(() => {
+        getNewKeycaps()
+        setIsSearched(false)
+    }, [isSearched])
+
 
     const addKeycap = (e) => {
         localStorage.setItem('keycap', e.target.innerHTML)
@@ -30,7 +45,15 @@ const KeycapList = (props) => {
       return (
           <div className="keycap-container">
               <h1>Keycaps</h1>
-              <ul>
+              <div className='search'>
+                    <input 
+                        placeholder='search parts'
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <button onClick={() => setIsSearched(true)}>?</button>
+                </div>
+                 <ul>
                   { keycaps.map((keycapItem) => (
                       <Keycap
                       key={ keycapItem.name } 

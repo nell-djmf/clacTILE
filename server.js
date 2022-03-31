@@ -37,10 +37,13 @@ app.get('/cases/:search', async (req, res) => {
   res.json(cases)
 })
 
-
-
 app.get('/keycaps', async (req, res) => {
   const keycaps = await Keycap.find()
+  res.json(keycaps)
+})
+
+app.get('/keycaps/:search', async (req, res) => {
+  const keycaps = await Keycap.find({ $text: { $search: req.params.search }})
   res.json(keycaps)
 })
 
@@ -48,6 +51,12 @@ app.get('/switches', async (req, res) => {
   const switches = await Switch.find()
   res.json(switches)
 })
+
+app.get('/switches/:search', async (req, res) => {
+  const switches = await Keycap.find({ $text: { $search: req.params.search }})
+  res.json(switches)
+})
+
 
 app.get('/builds', async (req, res) => {
   const builds = await Build.find({ user_id: "62438405a6d0c46a33b546d8" }).populate({
