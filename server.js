@@ -3,7 +3,7 @@ const cors = require('cors')
 const logger = require('morgan')
 const PORT = process.env.PORT || 3001
 const db = require('./server/db')
-const { User, Build, Case, Switch, Keycap } = require('./server/models')
+const { User, Build, Case, Switch, Keycap, Part } = require('./server/models')
 const res = require('express/lib/response')
 const app = express()
 
@@ -49,6 +49,13 @@ app.get('/builds', async (req, res) => {
   res.json(builds)
 })
 
+app.get('/parts', async (req, res) => {
+  const parts = await Part.find()
+  res.json(parts)
+})
+
+
+
 app.post('/builds/create', async (req, res) => {
   const newBuild = await Build.create({
     name: req.body.name,
@@ -85,10 +92,9 @@ app.delete('/delete', async (req, res) => {
 })
   
 app.get('/preview', async (req, res) => {
-  const findCase = await Case.find({ case_id: req.body.case })
-  const findKeycap = await Keycap.find({ keycap_id: req.body.keycap })
-  const findSwitch = await Switch.find({ switch_id: req.body.switch })
-  res.json(findCase, findKeycap, findSwitch)
+  console.log(req.body)
+  const findItems = await Part.find({ $or:[ { id: req.body.case }, { id: req.body.keycap }, { id: req.body.switch } ] })
+  res.json(findItems)
 })
 
 
