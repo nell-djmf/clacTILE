@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+
+
 
 const Preview = (props) => {
 
-
     return (
         <div className="preview">
-              <div className='preview-pain'>
-                <h2>Preview</h2>
-              </div>
+            <h2>Preview <button>Clear</button></h2>
+            <div className='preview-pane'>
+                <div>{props.preview.length === 0 && <div>No Items in Preview</div>}</div>
+                {props.preview.map((item) => {
+                    <div key={item.name}>
+                        <div>{item.name}</div>
+                    </div>
+                })}
+            </div>
         </div>
     )
 }

@@ -27,6 +27,23 @@ const App = () => {
     }, [])
 
 
+    const clearPreview = () => {
+      localStorage.clear()
+      console.log(localStorage)
+  }
+  
+
+
+  const [preview, setPreview] = useState([])
+  
+  // useEffect(() => {
+  //   setPreview(preview =>({
+
+  //   })
+
+  // }, [changes])
+
+
 
 
   return (
@@ -45,7 +62,7 @@ const App = () => {
           <Route path="/switches" element={ <SwitchList /> } />
         </Routes>
         <footer>
-          <Preview />
+          <Preview preview={preview}/>
         </footer>
       </main>
     </div>

@@ -38,6 +38,7 @@ const BuildList = (props) => {
             keycap_id: localStorage.getItem('keycap'), 
             switch_id: localStorage.getItem('switch') 
         })
+        localStorage.clear()
     }
 
 
@@ -56,6 +57,7 @@ const BuildList = (props) => {
             method: 'delete',
             data: {target}
         })
+        localStorage.clear()
     }
 
     
@@ -68,6 +70,7 @@ const BuildList = (props) => {
             keycap_id: localStorage.getItem('keycap'), 
             switch_id: localStorage.getItem('switch') 
         })
+        localStorage.clear()
     }
 
   
