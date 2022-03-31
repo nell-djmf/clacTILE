@@ -13,11 +13,16 @@ import Case from './components/Case';
 import Preview from './components/Preview';
 
 const App = () => {
-
+  
   const [users, setUsers] = useState([])
+  
+  const [preview, setPreview] = useState({})
+  
+  const [basket, setBasket] = useState([])
+
 
   const getUsers = async () => {
-      const res = await axios.get('http://localhost:3001/users')
+    const res = await axios.get('http://localhost:3001/users')
       console.log(res.data[0].name)
       setUsers(res.data[0].name)
     }
@@ -32,16 +37,19 @@ const App = () => {
       console.log(localStorage)
   }
   
-
-
-  const [preview, setPreview] = useState([])
-  
-  // useEffect(() => {
-  //   setPreview(preview =>({
-
+  // const getPreviewItems = async () => {
+  //   const res = await axios({
+  //     url: `http://localhost:3001/preview`,
+  //     method: 'get',
+  //     data: {preview}
   //   })
+  //   console.log(res.data)
+  //   setBasket(res.data)
+  // }
 
-  // }, [changes])
+  // useEffect(() => {
+  //   getPreviewItems()
+  // }, [preview])
 
 
 
@@ -55,14 +63,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={ <Homepage /> } />
           <Route path="/builds" element={ <BuildList 
-          users={users}
+          users={users} preview={preview}
           /> } />
-          <Route path="/cases" element={ <CaseList /> } />
-          <Route path="/keycaps" element={ <KeycapList  /> } />
-          <Route path="/switches" element={ <SwitchList /> } />
+          <Route path="/cases" element={ <CaseList preview={preview} setPreview={setPreview} /> } />
+          <Route path="/keycaps" element={ <KeycapList  preview={preview} setPreview={setPreview}/> } />
+          <Route path="/switches" element={ <SwitchList  preview={preview} setPreview={setPreview}/> } />
         </Routes>
         <footer>
-          <Preview preview={preview}/>
+          <Preview preview={preview} setPreview={setPreview}/>
         </footer>
       </main>
     </div>

@@ -84,6 +84,12 @@ app.delete('/delete', async (req, res) => {
   res.status(200).json('deleted successfully!')
 })
   
+app.get('/preview', async (req, res) => {
+  const findCase = await Case.find({ case_id: req.body.case })
+  const findKeycap = await Keycap.find({ keycap_id: req.body.keycap })
+  const findSwitch = await Switch.find({ switch_id: req.body.switch })
+  res.json(findCase, findKeycap, findSwitch)
+})
 
 
 app.get('/*', (req, res) => {
