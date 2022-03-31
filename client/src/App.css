@@ -43,10 +43,17 @@ ul, li {
   justify-content: center;
 }
 
-li {
+.build, .case, .keycap, .switch {
   border: 1px solid black;
+  padding: 5px;
+  height: 250px;
+  width: 200px;
 }
 
+.build-card, .case-card, .keycap-card, .switch-card {
+  padding: 5px;
+  font-size: 80%;
+}
 
 a {
   text-decoration: none;

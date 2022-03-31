@@ -8,8 +8,8 @@ const Build = (props) => {
   }
 
     return (
-        <div className="build">
-              <div id='select' className='build' onClick={props.onClick}>
+        <div  id='select' className="build">
+              <div className='build-card' onClick={props.onClick}>
                 <h2>{props.name}</h2>
                 <h3>Case: { props.case } </h3>
                 <h3>Keycaps: { props.keycap } </h3>

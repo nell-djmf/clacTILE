@@ -5,8 +5,6 @@ const Switch = (props) => {
 
     return (
         <div className="switch">
-          <div>
-            <li>
               <div className='switch-card'>
                 <h2>{ props.name }</h2>
                 <h3>Type: { props.type } </h3>
@@ -14,8 +12,6 @@ const Switch = (props) => {
                 <h3>Color: { props.color } </h3>
                 <h3>ID: <button onClick={props.addSwitch}>{props.id}</button></h3>
               </div>
-            </li>
-          </div>
         </div>
     )
 }
