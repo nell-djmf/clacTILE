@@ -59,7 +59,7 @@ const Build = (props) => {
           )
         }
               <div className='build-card' onClick={props.onClick}>
-                <h2>{props.name}</h2>
+                <h2 className='build-name'>{props.name}</h2>
                 <h3 onClick={(e)=>{
                   setCaseIsClicked(true)
                   e.target.parentNode.classList.toggle("highlighter")

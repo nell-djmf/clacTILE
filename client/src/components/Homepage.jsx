@@ -7,7 +7,7 @@ const Home = () => {
       <div className='title'>
         <h1>clacTILE</h1>
         <h2>
-          Mechanical Keyboard Builder
+          A Mechanical Keyboard Builder
         </h2>
       </div>
     </div>

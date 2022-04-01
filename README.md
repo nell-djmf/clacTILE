@@ -47,3 +47,7 @@ Switch References
 https://css-tricks.com/design-considerations-text-images/
 https://stackoverflow.com/questions/61921239/how-to-transform-background-image-on-hover-in-react
 https://stackoverflow.com/questions/67754865/how-to-blur-the-background-after-click-on-the-button-in-react-js
+https://www.tutorialrepublic.com/faq/how-to-overlay-one-div-over-another-div-using-css.php#:~:text=You%20can%20use%20the%20CSS,%2C%20fixed%20%2C%20or%20relative%20).
+https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+
+https://www.reddit.com/r/MechanicalKeyboards/comments/f1665m/neat_desktop_wallpaper_i_made_from_the_tokyo/

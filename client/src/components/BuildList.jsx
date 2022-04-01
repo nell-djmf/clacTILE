@@ -12,6 +12,9 @@ const BuildList = (props) => {
     //GET BOARDS
     const [builds, setBuilds] = useState([])
     const [change, setChange] = useState(false)
+    const [casePreview, setCasePreview] = useState([])
+    const [kcPreview, setKcPreview] = useState([])
+    const [switchPreview, setSwitchPreview] = useState([])
 
 
     const getBuilds = async () => {
@@ -83,6 +86,24 @@ const BuildList = (props) => {
     }, [change])
 
 
+    const getCasePreview = async () => {
+        const res = await axios.get(`http://localhost:3001/cases/${localStorage.getItem('case')}`)
+        setCasePreview(res.data)
+    }
+
+    const getKcPreview = async () => {
+        const res = await axios.get(`http://localhost:3001/cases/${localStorage.getItem('keycap')}`)
+        setKcPreview(res.data)
+    }
+
+    const getSwitchPreview = async () => {
+        const res = await axios.get(`http://localhost:3001/cases/${localStorage.getItem('switch')}`)
+        setSwitchPreview(res.data)
+    }
+
+
+
+
     return (
         <div className="build-container">
             <h1>{props.users}'s Builds</h1>
@@ -107,10 +128,15 @@ const BuildList = (props) => {
                     }
                 </div>
                 <div className="button-wrapper">
-                <button onClick={buildBoard}>Add Parts</button>
-                <button onClick={addNewBuild}>Add Parts to New Build</button>
-                <button onClick={deleteBuild}>Delete Build</button>
-                <button onClick={updateBuild}>Update Build</button>
+                <button onClick={buildBoard} className='edit-builds'>Add Parts</button>
+                <button onClick={addNewBuild} className='edit-builds'>Add Parts to New Build</button>
+                <button onClick={deleteBuild} className='edit-builds'>Delete Build</button>
+                <button onClick={updateBuild} className='edit-builds'>Update Build</button>
+                <div className="preview">
+                    <p>case id: {localStorage.getItem('case')}</p>
+                    <p>keycap id: {localStorage.getItem('keycap')}</p>
+                    <p>switch id: {localStorage.getItem('switch')}</p>
+                </div>
                 </div>
             </div>
     )
