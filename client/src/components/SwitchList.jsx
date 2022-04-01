@@ -60,6 +60,7 @@ const SwitchList = (props) => {
                       type={ switchItem.type }
                       actuation={ switchItem.actuation }
                       color={ switchItem.color }
+                      image={switchItem.image}
                       id={switchItem._id}
                       addSwitch={addSwitch}                  
                       />

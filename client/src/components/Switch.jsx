@@ -4,7 +4,10 @@ const Switch = (props) => {
 
 
     return (
-        <div className="switch">
+        <div className="switch" style={{
+          '--my-image': `url(${props.image})`,
+          '--hover-image': `url(${props.image})`
+          }}>
               <div className='switch-card'>
                 <h2>{ props.name }</h2>
                 <h3>Type: { props.type } </h3>
