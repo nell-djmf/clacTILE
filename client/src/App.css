@@ -97,12 +97,24 @@ a {
   var(--hover-image);
 }
 
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9;
+}
+
 .popup {
   position: absolute;
   top: 30%;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10;
 }
 
 .item-name:hover {

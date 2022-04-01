@@ -14,24 +14,30 @@ const Build = (props) => {
         '--hover-image': `url(${props.caseimage})`
         }}>
         {
-          caseIsClicked ? ( 
+          caseIsClicked ? (
+            <div>
             <div className='popup'>
               <img src={props.caseimage} alt='' onClick={()=>setCaseIsClicked(false)} style={{
                 maxWidth: '600px',
                 border: '1px solid black'
               }} />
             </div>
+            <div className='overlay'></div>
+            </div> 
           ) : (
             <div></div>
           )
         }
         {
           kcIsClicked ? ( 
+            <div>
             <div className='popup'>
               <img src={props.kcimage} alt='' onClick={()=>setKcIsClicked(false)} style={{
                 maxWidth: '600px',
                 border: '1px solid black'
               }} />
+            </div>
+            <div className='overlay'></div>
             </div>
           ) : (
             <div></div>
@@ -39,11 +45,14 @@ const Build = (props) => {
         }
         {
           switchIsClicked ? ( 
+            <div>
             <div className='popup'>
               <img src={props.switchimage} alt='' onClick={()=>setSwitchIsClicked(false)} style={{
                 maxWidth: '600px',
                 border: '1px solid black'
               }} />
+            </div>
+            <div className='overlay'></div>
             </div>
           ) : (
             <div></div>

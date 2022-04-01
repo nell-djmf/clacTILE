@@ -12,11 +12,14 @@ const Case = (props) => {
         }}>
         {
           isClicked ? ( 
-            <div className='popup'>
-              <img src={props.image} alt='' onClick={()=>setIsClicked(false)} style={{
-                maxWidth: '600px',
-                border: '1px solid black'
-              }} />
+            <div>
+                <div className='popup'>
+                  <img src={props.image} alt='' onClick={()=>setIsClicked(false)} style={{
+                    maxWidth: '600px',
+                    border: '1px solid black'
+                  }} />
+                </div>
+              <div className='overlay'></div>
             </div>
           ) : (
             <div></div>
