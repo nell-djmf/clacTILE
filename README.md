@@ -62,4 +62,4 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 [Transition on Hover](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
 
 
-[Images for Interactive Wallpaper](https://www.reddit.com/r/MechanicalKeyboards/comments/f1665m/neat_desktop_wallpaper_i_made_from_the_tokyo/)
+[Images for Interactive Wallpaper](https://www.reddit.com/r/MechanicalKeyboards/comments/n31nvq/interactive_sushi_switch_wallpaper_engine/)
