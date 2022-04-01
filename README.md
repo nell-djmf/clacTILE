@@ -21,20 +21,27 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 The site is a little fragile at the moment - for adding, editing, updating or deleting, please follow the steps to avoid errors.
 
 ### **Adding a Build**
-1. At the Build page, click `Add Parts`
-2. Select your parts by clicking on the part ID number button
-3. When returned to Build page, click `Add Parts to New Build`
-4. Name your build in the prompt
+> At the Build page, click `Add Parts`
+
+> Select your parts by clicking on the part ID number button
+
+> When returned to Build page, click `Add Parts to New Build`
+
+> Name your build in the prompt
 
 ### **Updating a Build**
-1. Click `Add Parts`
-2. Select parts, same as above
-3. When returned to Build page, click the build tile you want to update - your selection should highlight
-4. Click `Update Build` and name it
+> Click `Add Parts`
+
+> Select parts, same as above
+
+> When returned to Build page, click the build tile you want to update - your selection should highlight
+
+> Click `Update Build` and name it
 
 ### **Deleting a Build**
-1. Select a build tile
-2. Click `Delete Build`
+> Select a build tile
+
+> Click `Delete Build`
 
 ***
 
