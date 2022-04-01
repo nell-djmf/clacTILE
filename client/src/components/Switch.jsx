@@ -1,6 +1,9 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Switch = (props) => {
+
+  const [isClicked, setIsClicked] = useState(false)
 
 
     return (
@@ -8,8 +11,20 @@ const Switch = (props) => {
           '--my-image': `url(${props.image})`,
           '--hover-image': `url(${props.image})`
           }}>
+        {
+          isClicked ? ( 
+            <div className='popup'>
+              <img src={props.image} alt='' onClick={()=>setIsClicked(false)} style={{
+                maxWidth: '600px',
+                border: '1px solid black'
+              }} />
+            </div>
+          ) : (
+            <div></div>
+          )
+        }
               <div className='switch-card'>
-                <h2>{ props.name }</h2>
+                <h2 onClick={()=>setIsClicked(true)}  className='item-name'>{ props.name }</h2>
                 <h3>Type: { props.type } </h3>
                 <h3>Actuation Force: { props.actuation } </h3>
                 <h3>Color: { props.color } </h3>
