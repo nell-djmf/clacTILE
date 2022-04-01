@@ -18,6 +18,7 @@ body:active:hover {
   text-align: center;
   color: white;
   font-family: 'Rubik', sans-serif;
+  
 }
 
 .title {
@@ -152,7 +153,6 @@ input:hover, input:focus {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 9;
   backdrop-filter: blur(2px);
 }
 

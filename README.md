@@ -13,6 +13,29 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 - Search database for matching items by color, layout, material, etc
 - Create a list of your planned builds or choose from our prebuilt examples
 
+
+***
+
+## Getting Started
+
+The site is a little fragile at the moment - for adding, editing, updating or deleting, please follow the steps to avoid errors.
+
+### **Adding a Build**
+1. At the Build page, click `Add Parts`
+2. Select your parts by clicking on the part ID number button
+3. When returned to Build page, click `Add Parts to New Build`
+4. Name your build in the prompt
+
+### **Updating a Build**
+1. Click `Add Parts`
+2. Select parts, same as above
+3. When returned to Build page, click the build tile you want to update - your selection should highlight
+4. Click `Update Build` and name it
+
+### **Deleting a Build**
+1. Select a build tile
+2. Click `Delete Build`
+
 ***
 
 ## Upcoming Features
@@ -30,6 +53,15 @@ A part picker for building mechanical keyboards. Tile-based image layout for eas
 - MongoDB
 - Mongoose
 - Express
+
+***
+### Known Bugs
+
+<mark>**All of the following will break the site!**</mark>
+
+- Parts must be selected before clicking Add Parts to New build
+- A target build must be selected before clicking Delete
+- A target build must be selected *after* picking parts but *before* clicking Update
 
 ***
 ## Credits
