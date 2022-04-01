@@ -4,7 +4,10 @@ const Keycap = (props) => {
 
 
     return (
-        <div className="keycap">
+        <div className="keycap" style={{
+            '--my-image': `url(${props.image})`,
+            '--hover-image': `url(${props.image})`
+            }}>
               <div className='keycap-card'>
               <h2>{ props.name }</h2>
               <h3>Profile: { props.profile } </h3>

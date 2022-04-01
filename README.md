@@ -43,3 +43,6 @@ Keycap References
 
 Switch References
 
+
+https://css-tricks.com/design-considerations-text-images/
+https://stackoverflow.com/questions/61921239/how-to-transform-background-image-on-hover-in-react

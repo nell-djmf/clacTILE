@@ -8,7 +8,10 @@ const Build = (props) => {
   }
 
     return (
-        <div  id='select' className="build">
+        <div  id='select' className="build" style={{
+          backgroundImage: `url(${props.image})`,
+          backgroundSize: 'cover',
+          }}>
               <div className='build-card' onClick={props.onClick}>
                 <h2>{props.name}</h2>
                 <h3>Case: { props.case } </h3>

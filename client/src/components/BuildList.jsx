@@ -95,6 +95,7 @@ const BuildList = (props) => {
                         case={ buildItem.case_id.name }
                         keycap={ buildItem.keycap_id.name }
                         switch={ buildItem.switch_id.name }
+                        image={buildItem.case_id.image}
                         onClick={(e) => {
                             setTarget(buildItem._id)
                             e.target.parentNode.classList.toggle("highlighter")
