@@ -28,10 +28,12 @@ const Switch = (props) => {
         }
               <div className='switch-card'>
                 <h2 onClick={()=>setIsClicked(true)}  className='item-name'>{ props.name }</h2>
-                <h3>Type: { props.type } </h3>
-                <h3>Actuation Force: { props.actuation } </h3>
-                <h3>Color: { props.color } </h3>
-                <h3>ID: <button onClick={props.addSwitch}>{props.id}</button></h3>
+                <div className='info'>
+                  <h3>Type: { props.type } </h3>
+                  <h3>Actuation Force: { props.actuation } </h3>
+                  <h3>Color: { props.color } </h3>
+                  <h3>ID: <button onClick={props.addSwitch} className='id-button'>{props.id}</button></h3>
+                </div>
               </div>
         </div>
     )

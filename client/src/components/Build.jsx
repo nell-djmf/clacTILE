@@ -16,11 +16,11 @@ const Build = (props) => {
         {
           caseIsClicked ? (
             <div>
-            <div className='popup'>
+            <div className='popup-container'>
               <img src={props.caseimage} alt='' onClick={()=>setCaseIsClicked(false)} style={{
                 maxWidth: '600px',
                 border: '1px solid black'
-              }} />
+              }} className='popup'/>
             </div>
             <div className='overlay'></div>
             </div> 
@@ -31,11 +31,11 @@ const Build = (props) => {
         {
           kcIsClicked ? ( 
             <div>
-            <div className='popup'>
+            <div className='popup-container'>
               <img src={props.kcimage} alt='' onClick={()=>setKcIsClicked(false)} style={{
                 maxWidth: '600px',
                 border: '1px solid black'
-              }} />
+              }} className='popup'/>
             </div>
             <div className='overlay'></div>
             </div>
@@ -46,11 +46,11 @@ const Build = (props) => {
         {
           switchIsClicked ? ( 
             <div>
-            <div className='popup'>
+            <div className='popup-container'>
               <img src={props.switchimage} alt='' onClick={()=>setSwitchIsClicked(false)} style={{
                 maxWidth: '600px',
                 border: '1px solid black'
-              }} />
+              }} className='popup'/>
             </div>
             <div className='overlay'></div>
             </div>
@@ -60,9 +60,18 @@ const Build = (props) => {
         }
               <div className='build-card' onClick={props.onClick}>
                 <h2>{props.name}</h2>
-                <h3 onClick={()=>setCaseIsClicked(true)}  className='item-name'>Case: { props.case } </h3>
-                <h3 onClick={()=>setKcIsClicked(true)}  className='item-name'>Keycaps: { props.keycap } </h3>
-                <h3 onClick={()=>setSwitchIsClicked(true)}  className='item-name'>Switches: { props.switch } </h3>
+                <h3 onClick={(e)=>{
+                  setCaseIsClicked(true)
+                  e.target.parentNode.classList.toggle("highlighter")
+                  }}  className='item-name'>Case: { props.case } </h3>
+                <h3 onClick={(e)=>{
+                  setKcIsClicked(true)
+                  e.target.parentNode.classList.toggle("highlighter")
+                  }}  className='item-name'>Keycaps: { props.keycap } </h3>
+                <h3 onClick={(e)=>{
+                  setSwitchIsClicked(true)
+                  e.target.parentNode.classList.toggle("highlighter")
+                  }}  className='item-name'>Switches: { props.switch } </h3>
               </div>
         </div>
     )

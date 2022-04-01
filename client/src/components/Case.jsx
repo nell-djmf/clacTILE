@@ -27,10 +27,12 @@ const Case = (props) => {
         }
         <div className='case-card'>
             <h2 onClick={()=>setIsClicked(true)}  className='item-name'>{props.name}</h2>
-            <h3>Layout: { props.layout } </h3>
-            <h3>Material: { props.material } </h3>
-            <h3>Color: { props.color } </h3>
-            <h3>ID: <button onClick={props.addCase}>{props.id}</button> </h3>
+            <div className='info'>
+              <h3>Layout: { props.layout } </h3>
+              <h3>Material: { props.material } </h3>
+              <h3>Color: { props.color } </h3>
+              <h3>ID: <button onClick={props.addCase} className='id-button'>{props.id}</button> </h3>
+            </div>
         </div>
       </div>
     )
