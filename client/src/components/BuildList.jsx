@@ -11,7 +11,6 @@ const BuildList = (props) => {
 
     //GET BOARDS
     const [builds, setBuilds] = useState([])
-    const [highlight, setHighlight] = useState([])
     const [change, setChange] = useState(false)
 
 
@@ -87,7 +86,7 @@ const BuildList = (props) => {
     return (
         <div className="build-container">
             <h1>{props.users}'s Builds</h1>
-                <ul>
+                <div className="wrapper">
                     { builds.map((buildItem) => (
                         <Build
                         key={ buildItem._id } 
@@ -106,11 +105,13 @@ const BuildList = (props) => {
                         />
                         ))
                     }
-                </ul>
+                </div>
+                <div className="button-wrapper">
                 <button onClick={buildBoard}>Add Parts</button>
                 <button onClick={addNewBuild}>Add Parts to New Build</button>
                 <button onClick={deleteBuild}>Delete Build</button>
                 <button onClick={updateBuild}>Update Build</button>
+                </div>
             </div>
     )
 }

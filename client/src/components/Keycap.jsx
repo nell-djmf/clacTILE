@@ -14,11 +14,11 @@ const Keycap = (props) => {
         {
           isClicked ? ( 
             <div>
-                <div className='popup'>
+                <div className='popup-container'>
                   <img src={props.image} alt='' onClick={()=>setIsClicked(false)} style={{
                     maxWidth: '600px',
                     border: '1px solid black'
-                  }} />
+                  }} className='popup'/>
                 </div>
               <div className='overlay'></div>
             </div>

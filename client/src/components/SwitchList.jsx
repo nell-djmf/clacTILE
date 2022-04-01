@@ -44,15 +44,15 @@ const SwitchList = (props) => {
       return (
           <div className="switch-container">
               <h1>Switches</h1>
-              <div className='search'>
+              <div className='search-container'>
                     <input 
                         placeholder='search parts'
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <button onClick={() => setIsSearched(true)}>?</button>
+                    <button onClick={() => setIsSearched(true)} className='search'>✦</button>
                 </div>
-              <ul>
+              <div className="wrapper">
                   { switches.map((switchItem) => (
                       <Switch
                       key={ switchItem.name } 
@@ -66,7 +66,7 @@ const SwitchList = (props) => {
                       />
                     ))
                   }
-              </ul>
+              </div>
           </div>
       )
 }

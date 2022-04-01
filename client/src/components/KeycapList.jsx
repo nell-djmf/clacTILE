@@ -45,15 +45,15 @@ const KeycapList = (props) => {
       return (
           <div className="keycap-container">
               <h1>Keycaps</h1>
-              <div className='search'>
+              <div className='search-container'>
                     <input 
                         placeholder='search parts'
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <button onClick={() => setIsSearched(true)}>?</button>
+                    <button onClick={() => setIsSearched(true)}className='search'>✦</button>
                 </div>
-                 <ul>
+                 <div className="wrapper">
                   { keycaps.map((keycapItem) => (
                       <Keycap
                       key={ keycapItem.name } 
@@ -68,7 +68,7 @@ const KeycapList = (props) => {
                       />
                   ))
                   }
-              </ul>
+              </div>
           </div>
       )
   }

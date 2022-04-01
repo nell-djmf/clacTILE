@@ -3,7 +3,7 @@ const cors = require('cors')
 const logger = require('morgan')
 const PORT = process.env.PORT || 3001
 const db = require('./server/db')
-const { User, Build, Case, Switch, Keycap, Part } = require('./server/models')
+const { User, Build, Case, Switch, Keycap } = require('./server/models')
 const res = require('express/lib/response')
 const app = express()
 
@@ -64,18 +64,6 @@ app.get('/builds', async (req, res) => {
   })
   res.json(builds)
 })
-
-app.get('/parts', async (req, res) => {
-  const parts = await Part.find()
-  res.json(parts)
-})
-
-
-app.get('/parts/:search', async (req, res) => {
-  const parts = await Part.find({ $text: { $search: req.params.search }})
-  res.json(parts)
-})
-
 
 
 app.post('/builds/create', async (req, res) => {

@@ -1,5 +1,5 @@
 body {
-  /* background-image: url('https://i.imgur.com/DJ6jiB4.jpg'); */
+  background-image: url('https://i.imgur.com/DJ6jiB4.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #2B2A28;
@@ -36,42 +36,68 @@ body {
   margin-left: 0.5em;
 }
 
-ul, li {
-  list-style: none;
+.search-container {
+  margin: auto;
+  padding: 10px;
+}
+
+input {
+  width: 300px;
+  height: 25px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: pink;
+}
+
+input:hover, input:focus {
+  box-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1)
+}
+
+.search {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  height: 25px;
+  margin-left: 10px;
+  font-size: 20px;
+  color: pink;
+}
+
+.search:hover {
+  box-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1)
+}
+
+
+.wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
-.build, .case, .keycap, .switch {
+.case, .keycap, .switch, .build {
+  background-image: var(--my-image);
+  background-size: cover;
+  background-position: center;
   border: 1px solid black;
-  padding: 5px;
+  border-radius: 50px;
   height: 250px;
   width: 200px;
-  position: inherit;
+  padding: 20px;
 }
 
 .build-card, .case-card, .keycap-card, .switch-card {
-  padding: 5px;
   font-size: 80%;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   0px 8px 13px rgba(0,0,0,0.1),
   0px 18px 23px rgba(0,0,0,0.1);
+  margin: auto;
 }
 
 a {
   text-decoration: none;
 }
 
-
-.preview-card {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#select:hover, #select:focus {
-  background-color: darkslategray;
-}
 
 .highlighter {
   background-image: 
@@ -82,11 +108,6 @@ a {
   var(--hover-image);
 }
 
-.case, .keycap, .switch, .build {
-  background-image: var(--my-image);
-  background-size: cover;
-  background-position: center;
-}
 
 .case:hover, .keycap:hover, .switch:hover, .build:hover {
   background-image: 
@@ -108,13 +129,17 @@ a {
   z-index: 9;
 }
 
-.popup {
+.popup-container {
   position: absolute;
   top: 30%;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
+}
+
+.popup {
+  border-radius: 50px;
 }
 
 .item-name:hover {

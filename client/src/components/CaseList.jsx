@@ -43,15 +43,15 @@ const CaseList = (props) => {
       return (
           <div className="case-container">
                 <h1>Cases</h1>
-                <div className='search'>
+                <div className='search-container'>
                     <input 
                         placeholder='search parts'
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <button onClick={() => setIsSearched(true)}>?</button>
+                    <button onClick={() => setIsSearched(true)} className='search'>✦</button>
                 </div>
-              <ul>
+              <div className="wrapper">
                   { cases.map((caseItem) => (
                       <Case
                       key={ caseItem.name } 
@@ -65,7 +65,7 @@ const CaseList = (props) => {
                       />
                   ))
                   }
-              </ul>
+              </div>
           </div>
       )
   }
