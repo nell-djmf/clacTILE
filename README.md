@@ -1,9 +1,9 @@
 # clacTILE
 
+![homepage](https://i.imgur.com/onuRJdu.png)
+
 ## Premise
 A part picker for building mechanical keyboards. Tile-based image layout for ease of color-matching.
-
-![mech boards](https://i.imgur.com/FXOjL0h.png)
 
 ***
 
@@ -43,6 +43,10 @@ The site is a little fragile at the moment - for adding, editing, updating or de
 
 > Click `Delete Build`
 
+***
+**Build Page & Product Page**
+![build page](https://i.imgur.com/FXOjL0h.png)
+![product page](https://i.imgur.com/8xNiobz.png)
 ***
 
 ## Upcoming Features
