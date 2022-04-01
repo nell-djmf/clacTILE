@@ -14,8 +14,6 @@ const App = () => {
   
   const [users, setUsers] = useState([])
 
-
-
   const getUsers = async () => {
     const res = await axios.get('http://localhost:3001/users')
       console.log(res.data[0].name)

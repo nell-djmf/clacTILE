@@ -10,36 +10,34 @@ const KeycapList = (props) => {
     const [search, setSearch] = useState('')
     const [isSearched, setIsSearched] = useState(false)
 
-
+    //GET ALL KEYCAPS
     const getKeycaps = async () => {
         const res = await axios.get('http://localhost:3001/keycaps')
-        console.log(res.data)
         setKeycaps(res.data)
     }
 
+    //GET SEARCHED KEYCAPS
     const getNewKeycaps = async () => {
         const res = await axios.get(`http://localhost:3001/keycaps/${search}`)
         setKeycaps(res.data)
     }
     
-
     useEffect(() => {
         getKeycaps()
       }, [])
 
-
+    //Triggers re-render on search
     useEffect(() => {
         getNewKeycaps()
         setIsSearched(false)
     }, [isSearched])
 
-
+    //Adds keycap id to local storage, navigates to next page
     const addKeycap = (e) => {
         localStorage.setItem('keycap', e.target.innerHTML)
         console.log(localStorage)
         navigate(`/switches`)
     }
-
 
   
       return (

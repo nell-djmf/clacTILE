@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik:wght@300&display=swap');
+
+
 body {
   background-image: url('https://i.imgur.com/5bFAIXD.jpg');
   background-size: cover;
@@ -6,34 +9,39 @@ body {
   background-color: #353f4b;
 }
 
+/* Mimics a mousedown pointer event for a clickable switch bg */
 body:active:hover {
   background-image: url('https://i.imgur.com/xNf9k4v.png');
 }
 
-
 .App {
   text-align: center;
   color: white;
-
+  font-family: 'Rubik', sans-serif;
 }
 
 .title {
   position: absolute;
-  top: 50%;
+  top: 30%;
   bottom: 0;
   left: 0;
   right: 0;
+  font-family: 'Fredoka One', cursive;
 }
 
+.logo {
+  font-size: 90px;
+}
 
 .navbar {
   justify-content: space-between;
   align-items: center;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(35, 42, 49, 0.75);
   padding: 1em;
   min-height: 2em;
   font-family: 'Georgia';
+  border-bottom: 1px solid #4c596a;
 }
 
 .navbar a {
@@ -41,8 +49,12 @@ body:active:hover {
   color: white;
   font-weight: bold;
   margin-left: 0.5em;
+  font-family: 'Fredoka One', cursive;
 }
 
+h1 {
+  font-family: 'Fredoka One', cursive;
+}
 
 .search-container {
   margin: auto;
@@ -53,6 +65,7 @@ input {
   width: 300px;
   height: 25px;
   margin-bottom: 20px;
+  border: 1px solid #4c596a;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -64,6 +77,7 @@ input:hover, input:focus {
 
 .search {
   background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid #4c596a;
   border-radius: 10px;
   height: 25px;
   margin-left: 10px;
@@ -75,11 +89,12 @@ input:hover, input:focus {
   box-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1)
 }
 
-
 .wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid #4c596a;
   
 }
 
@@ -94,15 +109,17 @@ input:hover, input:focus {
   padding: 20px;
 }
 
+/* Heavy text shadow since it's hard to read on light backgrounds */
 .case-card, .keycap-card, .switch-card {
   font-size: 80%;
-  text-shadow: 2px 2px 0px  black, -2px -2px 0px  black, 2px -2px 0px  black, -2px 2px 0px  black;
+  text-shadow: 2px 2px 0px  #232a31, -2px -2px 0px  #232a31, 2px -2px 0px  #232a31, -2px 2px 0px  #232a31;
   border-radius: 50px;
   margin: auto;
 }
 
 .item-name {
   backdrop-filter: blur(2px);
+  font-family: 'Fredoka One', cursive;
 }
 
 .item-name:hover {
@@ -122,7 +139,7 @@ input:hover, input:focus {
   position: relative;
 }
 
-
+/* Styled so it would be superimposed on top of build div - prevents the highlight effect from overlapping */
 .build-card {
   font-size: 80%;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -137,7 +154,10 @@ input:hover, input:focus {
   width: 100%;
   z-index: 9;
   backdrop-filter: blur(2px);
+}
 
+.build-name {
+  font-family: 'Fredoka One', cursive;
 }
 
 .button-wrapper {
@@ -148,7 +168,8 @@ input:hover, input:focus {
 
 .edit-builds {
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid #4c596a;
+  background-color: rgba(35, 42, 49, 0.75);
   color: white;
   margin-left: 5px;
   margin-right: 5px;
@@ -163,15 +184,22 @@ input:hover, input:focus {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgba(0, 0, 0, 0.75);
-  width: 400px;
+  background-color: rgba(35, 42, 49, 0.75);
+  width: 300px;
   height: 100px;
+  border: 1px solid #4c596a;
   border-radius: 15px;
   text-align: left;
   padding: 10px;
 }
 
-p {
+.preview-title {
+  margin-top: 0%;
+  float: right;
+  width: 25%;
+}
+
+.preview-item {
   font-size: 80%
 }
 
@@ -179,6 +207,7 @@ p {
   opacity:0;
 }
 
+/* Shows part detail on hover */
 .info:hover {
   opacity:1;
   -webkit-transition: opacity .25s ease-in-out .0s;
@@ -199,19 +228,20 @@ a {
   box-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1)
 }
 
-
+/* Changes the background to a darkened version for ease of reading the part detail */
 .highlighter {
   background-image: 
   linear-gradient(
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.75)
-  ),
-  var(--hover-image);
-  background-size: cover;
-  box-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1)
-}
-
-
+    rgba(35, 42, 49, 0.75),
+    rgba(35, 42, 49, 0.75)
+    ),
+    var(--hover-image);
+    background-size: cover;
+    box-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1)
+  }
+  
+  
+  /* Originally opted for a blur effect, but it blurred the contents too. Just applies the highlight effect from above on hover */
 .case:hover, .keycap:hover, .switch:hover, .build:hover {
   background-image: 
   linear-gradient(
@@ -221,7 +251,7 @@ a {
   var(--hover-image);
 }
 
-
+/* Darkens the page on image popup */
 .overlay {
   position: fixed;
   top: 0;

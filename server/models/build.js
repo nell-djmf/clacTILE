@@ -2,7 +2,7 @@ const { Schema } = require('mongoose')
 
 const Build = new Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, required: false },
     user_id: { type: Schema.Types.ObjectId, ref: 'user_id' },
     case_id: { type: Schema.Types.ObjectId, ref: 'cases' },
     keycap_id: { type: Schema.Types.ObjectId, ref: 'keycaps' },

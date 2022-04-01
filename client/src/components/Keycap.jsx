@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const Keycap = (props) => {
 
+    //Popup preview trigger
     const [isClicked, setIsClicked] = useState(false)
 
 

@@ -9,17 +9,12 @@ import { useNavigate } from 'react-router-dom'
 
 const BuildList = (props) => {
 
-    //GET BOARDS
+    //GET ALL BUILDS
     const [builds, setBuilds] = useState([])
     const [change, setChange] = useState(false)
-    const [casePreview, setCasePreview] = useState([])
-    const [kcPreview, setKcPreview] = useState([])
-    const [switchPreview, setSwitchPreview] = useState([])
-
 
     const getBuilds = async () => {
         const res = await axios.get(`http://localhost:3001/builds`)
-        console.log(res.data)
         setBuilds(res.data)
     }
 
@@ -27,11 +22,7 @@ const BuildList = (props) => {
         getBuilds()
       }, [])
 
-
-      
-      
-      
-    //ADD BOARD
+    //ADD BUILDS
     let buildName = ''
       
     const addNewBuild = async () => {
@@ -45,14 +36,15 @@ const BuildList = (props) => {
         localStorage.clear()
         setChange(true)
     }
+    
 
-
+    //Sends user to cases page
     let navigate = useNavigate()
     const buildBoard = (e) => {
       navigate(`/cases`)
     }
 
-    //DELETE BOARD
+    //DELETE BUILD
     const [target, setTarget] = useState('')
 
     const deleteBuild = async () => {
@@ -66,8 +58,7 @@ const BuildList = (props) => {
         setChange(true)
     }
 
-    
-    //EDIT BOARD
+    //UPDATE BUILD
     const updateBuild = async () => {
         buildName = prompt('Name your build')
         await axios.post(`http://localhost:3001/update/${target}`, {
@@ -78,30 +69,14 @@ const BuildList = (props) => {
         })
         localStorage.clear()
         setChange(true)
+        
     }
 
+    //Triggers re-render when build edits are made
     useEffect(() => {
         getBuilds()
         setChange(false)
     }, [change])
-
-
-    const getCasePreview = async () => {
-        const res = await axios.get(`http://localhost:3001/cases/${localStorage.getItem('case')}`)
-        setCasePreview(res.data)
-    }
-
-    const getKcPreview = async () => {
-        const res = await axios.get(`http://localhost:3001/cases/${localStorage.getItem('keycap')}`)
-        setKcPreview(res.data)
-    }
-
-    const getSwitchPreview = async () => {
-        const res = await axios.get(`http://localhost:3001/cases/${localStorage.getItem('switch')}`)
-        setSwitchPreview(res.data)
-    }
-
-
 
 
     return (
@@ -133,9 +108,10 @@ const BuildList = (props) => {
                 <button onClick={deleteBuild} className='edit-builds'>Delete Build</button>
                 <button onClick={updateBuild} className='edit-builds'>Update Build</button>
                 <div className="preview">
-                    <p>case id: {localStorage.getItem('case')}</p>
-                    <p>keycap id: {localStorage.getItem('keycap')}</p>
-                    <p>switch id: {localStorage.getItem('switch')}</p>
+                    <h5 className="preview-title">Items</h5>
+                    <p className="preview-item">case id: {localStorage.getItem('case')}</p>
+                    <p className="preview-item">keycap id: {localStorage.getItem('keycap')}</p>
+                    <p className="preview-item">switch id: {localStorage.getItem('switch')}</p>
                 </div>
                 </div>
             </div>

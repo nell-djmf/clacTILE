@@ -10,37 +10,35 @@ const SwitchList = (props) => {
     const [search, setSearch] = useState('')
     const [isSearched, setIsSearched] = useState(false)
 
+    //GET ALL SWITCHES
     const getSwitches = async () => {
         const res = await axios.get('http://localhost:3001/switches')
         setSwitches(res.data)
     }
 
+    //GET SEARCHED SWITCHES
     const getNewSwitches = async () => {
         const res = await axios.get(`http://localhost:3001/switches/${search}`)
         setSwitches(res.data)
     }
     
-
     useEffect(() => {
         getSwitches()
       }, [])
 
+    //Triggers re-render on search
     useEffect(() => {
         getNewSwitches()
         setIsSearched(false)
     }, [isSearched])
 
-
-
-
-
+    //Adds switch id to local storage, sends you back to build page
     const addSwitch = (e) => {
         localStorage.setItem('switch', e.target.innerHTML)
-        console.log(localStorage)
         navigate(`/builds`)
     }
 
-  
+    
       return (
           <div className="switch-container">
               <h1>Switches</h1>

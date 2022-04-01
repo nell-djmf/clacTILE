@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 const Build = (props) => {
 
+  //Checks if name is clicked, trigger for popup preview
   const [caseIsClicked, setCaseIsClicked] = useState(false)
   const [kcIsClicked, setKcIsClicked] = useState(false)
   const [switchIsClicked, setSwitchIsClicked] = useState(false)
@@ -13,6 +14,7 @@ const Build = (props) => {
         '--my-image': `url(${props.caseimage})`,
         '--hover-image': `url(${props.caseimage})`
         }}>
+        {/* Code block below is for popup previews */}
         {
           caseIsClicked ? (
             <div>
@@ -58,6 +60,7 @@ const Build = (props) => {
             <div></div>
           )
         }
+              {/* Highlighter classlist toggles styling for build edit targets */}
               <div className='build-card' onClick={props.onClick}>
                 <h2 className='build-name'>{props.name}</h2>
                 <h3 onClick={(e)=>{
