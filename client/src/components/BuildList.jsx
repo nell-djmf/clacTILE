@@ -116,7 +116,7 @@ const BuildList = (props) => {
                 </div>
                 <div className="button-wrapper">
                 <button onClick={buildBoard} className='edit-builds'>Add Parts</button>
-                <button onClick={addNewBuild} className='edit-builds'>Add Parts to New Build</button>
+                <button onClick={addNewBuild} className='edit-builds'>Post Parts as New Build</button>
                 <button onClick={deleteBuild} className='edit-builds'>Delete Build</button>
                 <button onClick={updateBuild} className='edit-builds'>Update Build</button>
                 <div className="preview">
