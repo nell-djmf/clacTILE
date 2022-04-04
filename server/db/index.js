@@ -14,7 +14,7 @@ mongoose
     console.error('Connection error', e.message)
   })
 
-  
+mongoose.set('debug', true)
 const db = mongoose.connection
 
 module.exports = db

@@ -68,11 +68,18 @@ The site is a little fragile at the moment - for adding, editing, updating or de
 ***
 ### Known Bugs
 
-<mark>**All of the following will break the site!**</mark>
+~~**All of the following will break the site!**~~
 
-- Parts must be selected before clicking Add Parts to New build
-- A target build must be selected before clicking Delete
-- A target build must be selected *after* picking parts but *before* clicking Update
+~~- Parts must be selected before clicking Add Parts to New build~~
+
+~~- A target build must be selected before clicking Delete~~
+
+~~- A target build must be selected *after* picking parts but *before* clicking Update~~
+
+**Fixed as of 4/4/22 - Added code to check for targets/parts before making changes db*
+
+**Current bug:**
+- A target build must be unselected manually by clicking on it again
 
 ***
 ## Credits

@@ -26,15 +26,19 @@ const BuildList = (props) => {
     let buildName = ''
       
     const addNewBuild = async () => {
-        buildName = prompt('Name your build')
-        await axios.post(`http://localhost:3001/builds/create`, { 
-            name: buildName, 
-            case_id: localStorage.getItem('case'), 
-            keycap_id: localStorage.getItem('keycap'), 
-            switch_id: localStorage.getItem('switch') 
-        })
-        localStorage.clear()
-        setChange(true)
+        if (localStorage.getItem('case') && localStorage.getItem('keycap') && localStorage.getItem('switch')) {
+            buildName = prompt('Name your build')
+            await axios.post(`http://localhost:3001/builds/create`, { 
+                name: buildName, 
+                case_id: localStorage.getItem('case'), 
+                keycap_id: localStorage.getItem('keycap'), 
+                switch_id: localStorage.getItem('switch') 
+            })
+            localStorage.clear()
+            setChange(true)
+        } else {
+            alert('Please add parts to create build')
+        }
     }
     
 
@@ -48,27 +52,35 @@ const BuildList = (props) => {
     const [target, setTarget] = useState('')
 
     const deleteBuild = async () => {
-        console.log(target)
-        await axios({
-            url: `http://localhost:3001/delete`,
-            method: 'delete',
-            data: {target}
-        })
-        localStorage.clear()
-        setChange(true)
+        if (target === '') {
+            alert('Please select a build to delete')
+        } else if (target) {
+            console.log(target)
+            await axios({
+                url: `http://localhost:3001/delete`,
+                method: 'delete',
+                data: {target}
+            })
+            localStorage.clear()
+            setChange(true)
+        }
     }
 
     //UPDATE BUILD
     const updateBuild = async () => {
-        buildName = prompt('Name your build')
-        await axios.post(`http://localhost:3001/update/${target}`, {
-            name: buildName, 
-            case_id: localStorage.getItem('case'), 
-            keycap_id: localStorage.getItem('keycap'), 
-            switch_id: localStorage.getItem('switch') 
-        })
-        localStorage.clear()
-        setChange(true)
+        if (target === '') {
+            alert('Please select a build to apply changes')
+        } else if (target) {
+            buildName = prompt('Name your build')
+            await axios.post(`http://localhost:3001/update/${target}`, {
+                name: buildName, 
+                case_id: localStorage.getItem('case'), 
+                keycap_id: localStorage.getItem('keycap'), 
+                switch_id: localStorage.getItem('switch') 
+            })
+            localStorage.clear()
+            setChange(true)
+        }
         
     }
 
