@@ -17,7 +17,7 @@ const CaseList = (props) => {
 
     //GET SEARCHED CASES
     const getNewCases = async () => {
-        const res = await axios.get(`http://localhost:3001/api/cases/${search}`)
+        const res = await axios.get(`/api/cases/${search}`)
         setCases(res.data)
     }
     

@@ -12,13 +12,13 @@ const KeycapList = (props) => {
 
     //GET ALL KEYCAPS
     const getKeycaps = async () => {
-        const res = await axios.get('http://localhost:3001/api/keycaps')
+        const res = await axios.get('/api/keycaps')
         setKeycaps(res.data)
     }
 
     //GET SEARCHED KEYCAPS
     const getNewKeycaps = async () => {
-        const res = await axios.get(`http://localhost:3001/api/keycaps/${search}`)
+        const res = await axios.get(`/api/keycaps/${search}`)
         setKeycaps(res.data)
     }
     

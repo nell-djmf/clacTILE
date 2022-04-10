@@ -12,13 +12,13 @@ const SwitchList = (props) => {
 
     //GET ALL SWITCHES
     const getSwitches = async () => {
-        const res = await axios.get('http://localhost:3001/api/switches')
+        const res = await axios.get('/api/switches')
         setSwitches(res.data)
     }
 
     //GET SEARCHED SWITCHES
     const getNewSwitches = async () => {
-        const res = await axios.get(`http://localhost:3001/api/switches/${search}`)
+        const res = await axios.get(`/api/switches/${search}`)
         setSwitches(res.data)
     }
     
