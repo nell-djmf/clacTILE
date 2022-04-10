@@ -21,44 +21,44 @@ app.get('/', (req, res) => {
   res.send('This is root!')
 })
 
-app.get('/users', async (req, res) => {
+app.get('/api/users', async (req, res) => {
   const users = await User.find()
   res.json(users)
 })
 
 
-app.get('/cases', async (req, res) => {
+app.get('/api/cases', async (req, res) => {
   const cases = await Case.find()
   res.json(cases)
 })
 
-app.get('/cases/:search', async (req, res) => {
+app.get('/api/cases/:search', async (req, res) => {
   const cases = await Case.find({ $text: { $search: req.params.search }})
   res.json(cases)
 })
 
-app.get('/keycaps', async (req, res) => {
+app.get('/api/keycaps', async (req, res) => {
   const keycaps = await Keycap.find()
   res.json(keycaps)
 })
 
-app.get('/keycaps/:search', async (req, res) => {
+app.get('/api/keycaps/:search', async (req, res) => {
   const keycaps = await Keycap.find({ $text: { $search: req.params.search }})
   res.json(keycaps)
 })
 
-app.get('/switches', async (req, res) => {
+app.get('/api/switches', async (req, res) => {
   const switches = await Switch.find()
   res.json(switches)
 })
 
-app.get('/switches/:search', async (req, res) => {
+app.get('/api/switches/:search', async (req, res) => {
   const switches = await Switch.find({ $text: { $search: req.params.search }})
   res.json(switches)
 })
 
 
-app.get('/builds', async (req, res) => {
+app.get('/api/builds', async (req, res) => {
   const builds = await Build.find({ user_id: "62438405a6d0c46a33b546d8" }).populate({
     path: 'case_id keycap_id switch_id',
   })
@@ -66,7 +66,7 @@ app.get('/builds', async (req, res) => {
 })
 
 
-app.post('/builds/create', async (req, res) => {
+app.post('/api/builds/create', async (req, res) => {
   const newBuild = await Build.create({
     name: req.body.name,
     user_id: "62438405a6d0c46a33b546d8",
@@ -77,7 +77,7 @@ app.post('/builds/create', async (req, res) => {
   res.json(newBuild)
 })
 
-app.post('/update/:target', async (req, res) => {
+app.post('/api/update/:target', async (req, res) => {
   let target = req.params.target
   console.log(req.body)
   const updateBuild = await Build.findOneAndUpdate(
@@ -94,7 +94,7 @@ app.post('/update/:target', async (req, res) => {
     res.status(200).json(updateBuild)
   })
   
-app.delete('/delete', async (req, res) => {
+app.delete('/api/delete', async (req, res) => {
   console.log(req.body)
   const deleteBuild = await Build.findByIdAndDelete(req.body.target)
   console.log(deleteBuild)

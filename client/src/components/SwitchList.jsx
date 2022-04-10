@@ -18,7 +18,7 @@ const SwitchList = (props) => {
 
     //GET SEARCHED SWITCHES
     const getNewSwitches = async () => {
-        const res = await axios.get(`http://localhost:3001/switches/${search}`)
+        const res = await axios.get(`http://localhost:3001/api/switches/${search}`)
         setSwitches(res.data)
     }
     
@@ -35,7 +35,7 @@ const SwitchList = (props) => {
     //Adds switch id to local storage, sends you back to build page
     const addSwitch = (e) => {
         localStorage.setItem('switch', e.target.innerHTML)
-        navigate(`/builds`)
+        navigate(`/api/builds`)
     }
 
     
