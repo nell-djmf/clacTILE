@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const UserSchema = require('./User')
-const BuildSchema = require('./Build')
-const CaseSchema = require('./Case')
-const KeycapSchema = require('./Keycap')
-const SwitchSchema = require('./Switch')
+const UserSchema = require('./user')
+const BuildSchema = require('./build')
+const CaseSchema = require('./case')
+const KeycapSchema = require('./keycap')
+const SwitchSchema = require('./switch')
 
 
 
