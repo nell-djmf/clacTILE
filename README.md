@@ -53,7 +53,7 @@ The site is a little fragile at the moment - for adding, editing, updating or de
 
 ## Upcoming Features
 ### [Trello](https://trello.com/b/9XaPPAAh/clactile)
-- [ ] Preview pane showing name and image preview instead of part id number
+- [ ] Build List preview pane showing name and image preview instead of part id number
 - [ ] Build edit buttons dynamically hiding/displaying depending on if parts are picked or builds are targeted
 - [ ] Pricing and buy sources for items
 - [ ] Database extension for more PC peripherals by color (mice, headsets, deskmats, wrist/keyboard wrests)
@@ -70,20 +70,13 @@ The site is a little fragile at the moment - for adding, editing, updating or de
 ***
 ### Known Bugs
 
-~~**All of the following will break the site!**~~
 
-~~- Parts must be selected before clicking Add Parts to New build~~
-
-~~- A target build must be selected before clicking Delete~~
-
-~~- A target build must be selected *after* picking parts but *before* clicking Update~~
-
-**Fixed as of 4/4/22 - Added code to check for targets/parts before making changes db*
+**Fixed as of 4/4/22** - *Added code to check for targets/parts before making changes to db*
 
 **Current bug:**
 - A target build must be unselected manually by clicking on it again
 
-**UPDATE 4/10/22**: <mark>I have updated the code for deployment on Heroku. I am unsure if the code still works if run in a local environment, as I have removed localhost from all axios calls.</mark>
+**UPDATE 4/10/22**: ==I have updated the code for deployment on Heroku. I am unsure if the code still works if run in a local environment, as I have removed localhost from all axios calls.==
 
 ***
 ## Credits
