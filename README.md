@@ -68,15 +68,15 @@ The site is a little fragile at the moment - for adding, editing, updating or de
 - Express
 
 ***
-### Known Bugs
+### Known Bugs & Fixes
 
 
-**Fixed as of 4/4/22** - *Added code to check for targets/parts before making changes to db*
+**FIX 4/4/22** - *Added code to check for targets/parts before making changes to db*
 
 **Current bug:**
 - A target build must be unselected manually by clicking on it again
 
-**UPDATE 4/10/22**: ==I have updated the code for deployment on Heroku. I am unsure if the code still works if run in a local environment, as I have removed localhost from all axios calls.==
+**UPDATE 4/10/22**: I have updated the code for deployment on Heroku. I am unsure if the code still works if run in a local environment, as I have removed localhost from all axios calls.
 
 ***
 ## Credits
