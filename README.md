@@ -5,6 +5,8 @@
 ## Premise
 A part picker for building mechanical keyboards. Tile-based image layout for ease of color-matching.
 
+
+*Deployed on Heroku:* **[clacTILE](https://clactile.herokuapp.com/)**
 ***
 
 ## Features
@@ -80,6 +82,8 @@ The site is a little fragile at the moment - for adding, editing, updating or de
 
 **Current bug:**
 - A target build must be unselected manually by clicking on it again
+
+**UPDATE 4/10/22**: <mark>I have updated the code for deployment on Heroku. I am unsure if the code still works if run in a local environment, as I have removed localhost from all axios calls.</mark>
 
 ***
 ## Credits
