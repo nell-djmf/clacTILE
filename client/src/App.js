@@ -15,7 +15,7 @@ const App = () => {
   const [users, setUsers] = useState([])
 
   const getUsers = async () => {
-    const res = await axios.get('/users')
+    const res = await axios.get('/api/users')
       console.log(res.data[0].name)
       setUsers(res.data[0].name)
     }
