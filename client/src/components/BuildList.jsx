@@ -45,7 +45,7 @@ const BuildList = (props) => {
     //Sends user to cases page
     let navigate = useNavigate()
     const buildBoard = (e) => {
-      navigate(`/api/cases`)
+      navigate(`/cases`)
     }
 
     //DELETE BUILD

@@ -35,7 +35,7 @@ const SwitchList = (props) => {
     //Adds switch id to local storage, sends you back to build page
     const addSwitch = (e) => {
         localStorage.setItem('switch', e.target.innerHTML)
-        navigate(`/api/builds`)
+        navigate(`/builds`)
     }
 
     

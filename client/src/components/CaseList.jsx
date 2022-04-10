@@ -34,7 +34,7 @@ const CaseList = (props) => {
     //Adds case id to local storage, navigates to next page
     const addCase = (e) => {
         localStorage.setItem('case', e.target.innerHTML)
-        navigate(`/api/keycaps`)
+        navigate(`/keycaps`)
     }
 
 

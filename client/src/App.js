@@ -33,12 +33,12 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={ <Homepage /> } />
-          <Route path="/api/builds" element={ <BuildList 
+          <Route path="/builds" element={ <BuildList 
           users={users}
           /> } />
-          <Route path="/api/cases" element={ <CaseList /> } />
-          <Route path="/api/keycaps" element={ <KeycapList  /> } />
-          <Route path="/api/switches" element={ <SwitchList  /> } />
+          <Route path="/cases" element={ <CaseList /> } />
+          <Route path="/keycaps" element={ <KeycapList  /> } />
+          <Route path="/switches" element={ <SwitchList  /> } />
         </Routes>
       </main>
     </div>

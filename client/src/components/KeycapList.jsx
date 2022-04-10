@@ -36,7 +36,7 @@ const KeycapList = (props) => {
     const addKeycap = (e) => {
         localStorage.setItem('keycap', e.target.innerHTML)
         console.log(localStorage)
-        navigate(`/api/switches`)
+        navigate(`/switches`)
     }
 
   
