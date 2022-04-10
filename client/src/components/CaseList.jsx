@@ -11,13 +11,13 @@ const CaseList = (props) => {
 
     //GET ALL CASES
     const getCases = async () => {
-        const res = await axios.get(`http://localhost:3001/cases`)
+        const res = await axios.get(`http://localhost:3001/api/cases`)
         setCases(res.data)
     }
 
     //GET SEARCHED CASES
     const getNewCases = async () => {
-        const res = await axios.get(`http://localhost:3001/cases/${search}`)
+        const res = await axios.get(`http://localhost:3001/api/cases/${search}`)
         setCases(res.data)
     }
     
@@ -34,7 +34,7 @@ const CaseList = (props) => {
     //Adds case id to local storage, navigates to next page
     const addCase = (e) => {
         localStorage.setItem('case', e.target.innerHTML)
-        navigate(`/keycaps`)
+        navigate(`/api/keycaps`)
     }
 
 
