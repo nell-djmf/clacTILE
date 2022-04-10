@@ -11,7 +11,7 @@ const CaseList = (props) => {
 
     //GET ALL CASES
     const getCases = async () => {
-        const res = await axios.get(`http://localhost:3001/api/cases`)
+        const res = await axios.get(`/api/cases`)
         setCases(res.data)
     }
 
