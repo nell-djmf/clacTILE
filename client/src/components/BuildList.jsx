@@ -14,7 +14,7 @@ const BuildList = (props) => {
     const [change, setChange] = useState(false)
 
     const getBuilds = async () => {
-        const res = await axios.get(`http://localhost:3001/api/builds`)
+        const res = await axios.get(`http://localhost:3001/builds`)
         setBuilds(res.data)
     }
 
@@ -28,7 +28,7 @@ const BuildList = (props) => {
     const addNewBuild = async () => {
         if (localStorage.getItem('case') && localStorage.getItem('keycap') && localStorage.getItem('switch')) {
             buildName = prompt('Name your build')
-            await axios.post(`http://localhost:3001/api/builds/create`, { 
+            await axios.post(`http://localhost:3001/builds/create`, { 
                 name: buildName, 
                 case_id: localStorage.getItem('case'), 
                 keycap_id: localStorage.getItem('keycap'), 
@@ -45,7 +45,7 @@ const BuildList = (props) => {
     //Sends user to cases page
     let navigate = useNavigate()
     const buildBoard = (e) => {
-      navigate(`/api/cases`)
+      navigate(`/cases`)
     }
 
     //DELETE BUILD
@@ -57,7 +57,7 @@ const BuildList = (props) => {
         } else if (target) {
             console.log(target)
             await axios({
-                url: `http://localhost:3001/api/delete`,
+                url: `http://localhost:3001/delete`,
                 method: 'delete',
                 data: {target}
             })
@@ -72,7 +72,7 @@ const BuildList = (props) => {
             alert('Please select a build to apply changes')
         } else if (target) {
             buildName = prompt('Name your build')
-            await axios.post(`http://localhost:3001/api/update/${target}`, {
+            await axios.post(`http://localhost:3001/update/${target}`, {
                 name: buildName, 
                 case_id: localStorage.getItem('case'), 
                 keycap_id: localStorage.getItem('keycap'), 
